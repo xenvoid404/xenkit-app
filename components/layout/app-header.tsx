@@ -5,7 +5,7 @@ import { usePathname } from 'next/navigation';
 import { MdMenu } from 'react-icons/md';
 import { motion } from 'framer-motion';
 import { ThemeToggle } from '@/components/layout/theme-toggle';
-import { navigation } from '@/data/navigation';
+import { navigations } from '@/data/navigations';
 
 export function AppHeader({ sidebarOpen }: { sidebarOpen: () => void }) {
     const pathname = usePathname();
@@ -27,7 +27,7 @@ export function AppHeader({ sidebarOpen }: { sidebarOpen: () => void }) {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center space-x-8" aria-label="Main navigation">
-                    {navigation.map(item =>
+                    {navigations.map(item =>
                         item.isExternal ? (
                             <a
                                 key={item.title}
