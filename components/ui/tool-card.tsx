@@ -86,7 +86,7 @@ export function ToolCard({ tool, className = '', style, viewMode = 'grid' }: Too
                                 >
                                     <span className="relative z-10 flex items-center justify-center gap-2">
                                         <span>Open Tool</span>
-                                        <ExternalLink className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+                                        <LuExternalLink className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
                                     </span>
 
                                     {/* Button hover effect */}
