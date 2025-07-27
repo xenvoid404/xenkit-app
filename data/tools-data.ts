@@ -6,7 +6,7 @@ export interface Tool {
     name: string;
     description: string;
     categories: string[];
-    icon: IconType<{ className?: string }>;
+    icon: IconType;
     url: string;
     keywords?: string[];
 }
