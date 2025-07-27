@@ -80,18 +80,21 @@ export function AppFooter() {
                     <div className="lg:col-span-1">
                         <h4 className="font-semibold mb-4 text-foreground">Follow Us</h4>
                         <div className="flex flex-col space-y-3">
-                            {socials.map(item => (
-                                <a
-                                    key={item.title}
-                                    href={item.href}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-                                >
-                                    <item.icon className="h-4 w-4" />
-                                    {item.title}
-                                </a>
-                            ))}
+                            {socials.map(item => {
+                                const Icon = item.icon;
+                                return (
+                                    <a
+                                        key={item.title}
+                                        href={item.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+                                    >
+                                        {Icon && <Icon className="h-4 w-4" />}
+                                        {item.title}
+                                    </a>
+                                );
+                            })}
                             <a
                                 href="mailto:xenvoid404@gmail.com"
                                 className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
