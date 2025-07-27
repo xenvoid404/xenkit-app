@@ -79,7 +79,7 @@ export function Hero() {
                         className="flex flex-wrap justify-center items-center gap-6 text-sm text-muted-foreground"
                     >
                         <div className="flex items-center gap-2">
-                            <Shield className="w-4 h-4 text-green-500" />
+                            <IoShieldCheckmarkOutline className="w-4 h-4 text-green-500" />
                             <span>No signup required</span>
                         </div>
                         <div className="flex items-center gap-2">
@@ -87,7 +87,7 @@ export function Hero() {
                             <span>Instant results</span>
                         </div>
                         <div className="flex items-center gap-2">
-                            <Zap className="w-4 h-4 text-yellow-500" />
+                            <GoZap className="w-4 h-4 text-yellow-500" />
                             <span>Always free</span>
                         </div>
                     </motion.div>
