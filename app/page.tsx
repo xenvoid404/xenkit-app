@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { Hero } from '@/components/sections/hero';
+import { FeaturedTools } from '@/components/sections/featured-tools';
 
 export const metadata: Metadata = {
     title: 'Xenkit - Free Developer Tools & Utilities for Modern Development',
@@ -51,6 +52,9 @@ export default function Home() {
             <main id="main-content" className="flex flex-col">
                 {/* Hero Section */}
                 <Hero />
+
+                {/* Featured Tools */}
+                <FeaturedTools />
             </main>
         </>
     );
