@@ -1,7 +1,7 @@
 'use client';
 import { type ReactNode, useState } from 'react';
-import { AppHeader } from '@/components/layouts/app-header';
-import { AppSidebarMobile } from '@/components/layouts/app-sidebar-mobile';
+import { AppHeader } from '@/components/layout/app-header';
+import { AppSidebarMobile } from '@/components/layout/app-sidebar-mobile';
 
 export default function AppLayout({ children }: { children: ReactNode }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
