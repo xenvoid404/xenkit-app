@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { tools } from '@/lib/tools-data';
+import { tools } from '@/data/tools-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://xenkit.com';
@@ -9,8 +9,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
             lastModified: new Date(),
             changeFrequency: 'weekly' as const,
             priority: 1
+        },
+        {
+            url: `${baseUrl}/tools`,
+            lastModified: new Date(),
+            changeFrequency: 'daily' as const,
+            priority: 0.9
         }
     ];
 
-    return [...routes];
+    const toolRoutes = tools.map(tool => ({
+        url: `${baseUrl}${tool.url}`,
+        lastModified: new Date(),
+        changeFrequency: 'weekly' as const,
+        priority: tool.popular ? 0.8 : 0.6
+    }));
+
+    return [...routes, ...toolRoutes];
 }
