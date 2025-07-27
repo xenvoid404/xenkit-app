@@ -1,3 +1,4 @@
+import { type IconType } from 'react-icons';
 import { FaGithub } from 'react-icons/fa';
 
 interface Navigation {

@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { type IconType } from 'react-icons';
 import { usePathname } from 'next/navigation';
 import { MdMenu } from 'react-icons/md';
 import { motion } from 'framer-motion';
