@@ -120,21 +120,6 @@ export function Hero() {
                             </motion.button>
                         </Link>
                     </motion.div>
-
-                    {/* Scroll indicator */}
-                    <motion.div variants={itemVariants} transition={{ duration: 0.6, ease: 'easeOut' }} className="pt-12">
-                        <motion.div
-                            animate={{ y: [0, 8, 0] }}
-                            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                            className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full mx-auto flex justify-center"
-                        >
-                            <motion.div
-                                animate={{ y: [0, 12, 0] }}
-                                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                                className="w-1 h-3 bg-muted-foreground/50 rounded-full mt-2"
-                            />
-                        </motion.div>
-                    </motion.div>
                 </motion.div>
             </div>
         </section>
