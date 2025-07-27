@@ -1,0 +1,4 @@
+builds:
+    '@tailwindcss/oxide': true
+    sharp: true
+    unrs-resolver: true
