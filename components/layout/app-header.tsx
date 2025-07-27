@@ -10,7 +10,7 @@ export function AppHeader({ sidebarOpen }: { sidebarOpen: () => void }) {
     const pathname = usePathname();
 
     return (
-        <header className="sticky top-0 z-40 w-full h-16 flex items-center justify-center border-b border-border/50 bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 animate-slide-in-down">
+        <header className="sticky top-0 z-40 w-full h-16 flex items-center justify-center border-b border-muted-foreground bg-background/80 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60 animate-slide-in-down">
             <div className="flex w-full items-center justify-between px-6 py-2 max-w-7xl mx-auto">
                 {/* Logo */}
                 <Link href="/" className="flex items-center space-x-2 group" aria-label="Xenkit - Go to homepage">
