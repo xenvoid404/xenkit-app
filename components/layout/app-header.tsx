@@ -1,12 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import { type IconType } from 'react-icons';
 import { usePathname } from 'next/navigation';
 import { MdMenu } from 'react-icons/md';
 import { motion } from 'framer-motion';
 import { ThemeToggle } from '@/components/layout/theme-toggle';
-
-const navigation = [{ name: 'Home', href: '/' }];
+import { navigation } from '@/data/navigation';
 
 export function AppHeader({ sidebarOpen }: { sidebarOpen: () => void }) {
     const pathname = usePathname();
@@ -28,29 +28,45 @@ export function AppHeader({ sidebarOpen }: { sidebarOpen: () => void }) {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex items-center space-x-8" aria-label="Main navigation">
-                    {navigation.map(item => (
-                        <Link
-                            key={item.name}
-                            href={item.href}
-                            className={`relative px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-primary ${
-                                pathname === item.href ? 'text-primary' : 'text-foreground/80'
-                            }`}
-                        >
-                            {item.name}
-                            {pathname === item.href && (
-                                <motion.div
-                                    layoutId="activeTab"
-                                    className="absolute inset-x-0 bottom-0 h-0.5 bg-primary"
-                                    initial={false}
-                                    transition={{
-                                        type: 'spring',
-                                        stiffness: 500,
-                                        damping: 30
-                                    }}
-                                />
-                            )}
-                        </Link>
-                    ))}
+                    {navigation.map(item =>
+                        item.isExternal ? (
+                            <a
+                                key={item.title}
+                                href={item.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`flex items-center gap-2 relative px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-primary ${
+                                    pathname === item.href ? 'text-primary' : 'text-foreground/80'
+                                }`}
+                            >
+                                {item.icon && <item.icon className="w-4 h-4" />}
+                                {item.title}
+                            </a>
+                        ) : (
+                            <Link
+                                key={item.title}
+                                href={item.href}
+                                className={`flex items-center gap-2 relative px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-primary ${
+                                    pathname === item.href ? 'text-primary' : 'text-foreground/80'
+                                }`}
+                            >
+                                {item.icon && <item.icon className="w-4 h-4" />}
+                                {item.title}
+                                {pathname === item.href && (
+                                    <motion.div
+                                        layoutId="activeTab"
+                                        className="absolute inset-x-0 bottom-0 h-0.5 bg-primary"
+                                        initial={false}
+                                        transition={{
+                                            type: 'spring',
+                                            stiffness: 500,
+                                            damping: 30
+                                        }}
+                                    />
+                                )}
+                            </Link>
+                        )
+                    )}
                 </nav>
 
                 {/* Actions */}
