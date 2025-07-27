@@ -4,7 +4,6 @@ import { Figtree } from 'next/font/google';
 import Script from 'next/script';
 import { ThemeProvider } from '@/contexts/theme-provider';
 import AppLayout from '@/layouts/app-layout';
-import { JsonLd } from '@/components/json-ld';
 import './globals.css';
 
 const figtree = Figtree({
@@ -131,7 +130,6 @@ export default function RootLayout({
                 <link rel="apple-touch-icon" href="/favicon-180.png" />
                 <link rel="shortcut icon" href="/favicon.ico" />
                 <meta name="google-site-verification" content="your-google-verification-code-here" />
-                <JsonLd />
             </head>
             <body className={`${figtree.variable} font-figtree antialiased bg-background text-foreground`}>
                 {/* Google Analytics */}
