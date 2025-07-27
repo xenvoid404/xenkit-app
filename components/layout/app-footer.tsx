@@ -95,13 +95,6 @@ export function AppFooter() {
                                     </a>
                                 );
                             })}
-                            <a
-                                href="mailto:xenvoid404@gmail.com"
-                                className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
-                            >
-                                <FiMail className="h-4 w-4" />
-                                Contact Email
-                            </a>
                         </div>
                     </div>
                 </div>

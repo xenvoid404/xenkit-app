@@ -5,6 +5,7 @@ import { type Variants } from 'framer-motion';
 import { motion, AnimatePresence } from 'framer-motion';
 import { IoClose } from 'react-icons/io5';
 import { FaGithub } from 'react-icons/fa';
+import { navigations } from '@/data/navigations';
 
 export function AppSidebarMobile({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
     useEffect(() => {
@@ -88,11 +89,6 @@ export function AppSidebarMobile({ isOpen, onClose }: { isOpen: boolean; onClose
         }
     };
 
-    const menuItems = [
-        { title: 'Home', href: '/', isExternal: false },
-        { title: 'GitHub', href: 'https://github.com/xenvoid404', isExternal: true, icon: FaGithub }
-    ];
-
     return (
         <AnimatePresence mode="wait">
             {isOpen && (
@@ -121,7 +117,7 @@ export function AppSidebarMobile({ isOpen, onClose }: { isOpen: boolean; onClose
 
                         <div className="flex flex-1 flex-col items-center justify-center px-6">
                             <nav className="flex flex-col items-center gap-6 w-full">
-                                {menuItems.map((item, index) => (
+                                {navigations.map((item, index) => (
                                     <motion.div
                                         key={item.href}
                                         custom={index}
