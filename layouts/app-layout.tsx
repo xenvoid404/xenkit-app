@@ -2,6 +2,7 @@
 import { type ReactNode, useState } from 'react';
 import { AppHeader } from '@/components/layout/app-header';
 import { AppSidebarMobile } from '@/components/layout/app-sidebar-mobile';
+import { AppFooter } from '@/components/layout/app-footer';
 
 export default function AppLayout({ children }: { children: ReactNode }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
@@ -15,7 +16,10 @@ export default function AppLayout({ children }: { children: ReactNode }) {
 
             <div className="flex flex-1 flex-col">
                 <AppHeader sidebarOpen={openSidebar} />
-                <div className="flex flex-1 flex-col">{children}</div>
+                <div className="flex flex-1 flex-col">
+                    {children}
+                    <AppFooter />
+                </div>
             </div>
         </div>
     );
