@@ -36,7 +36,7 @@ export function FeaturedTools() {
     };
 
     return (
-        <section ref={ref} className="relative py-24 bg-gradient-to-b from-muted/5 to-background" aria-labelledby="tools-heading">
+        <section ref={ref} id="featured-tools" className="relative py-24 bg-gradient-to-b from-muted/5 to-background" aria-labelledby="tools-heading">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <motion.div
                     variants={titleVariants}

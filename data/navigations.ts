@@ -10,6 +10,7 @@ interface Navigation {
 
 export const navigations: Navigation[] = [
     { title: 'Home', href: '/', isExternal: false },
+    { title: 'Tools', href: '/tools', isExternal: false },
     { title: 'GitHub', href: 'https://github.com/xenvoid404', isExternal: true, icon: FiGithub }
 ];
 

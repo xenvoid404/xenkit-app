@@ -98,7 +98,7 @@ export function Hero() {
                         transition={{ duration: 0.6, ease: 'easeOut' }}
                         className="flex flex-col sm:flex-row items-center justify-center gap-4"
                     >
-                        <Link href="/tools">
+                        <Link href="#featured-tools">
                             <motion.button
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
@@ -107,16 +107,6 @@ export function Hero() {
                                 <span className="relative z-10">Explore Tools</span>
                                 <FaArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
                                 <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                            </motion.button>
-                        </Link>
-
-                        <Link href="#features">
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="inline-flex items-center gap-2 px-6 py-3 border border-muted-foreground/20 rounded-xl font-medium text-foreground hover:border-primary/50 hover:text-primary transition-all duration-300"
-                            >
-                                Learn More
                             </motion.button>
                         </Link>
                     </motion.div>
