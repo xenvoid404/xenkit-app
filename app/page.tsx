@@ -1,103 +1,200 @@
-import Image from "next/image";
+'use client';
+
+import { Metadata } from 'next';
+import Link from 'next/link';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
+import { FaArrowRight, FaRegClock } from 'react-icons/fa';
+import { GoZap } from 'react-icons/go';
+import { IoShieldCheckmarkOutline } from 'react-icons/io5';
+
+export const metadata: Metadata = {
+    title: 'Xenkit - Free Developer Tools & Utilities for Modern Development',
+    description:
+        'Boost your productivity with 25 free online developer tools. Password generators, UUID generators, Base64 encoders, JSON formatters, regex testers and more. No signup required.',
+    keywords: [
+        'free developer tools',
+        'online development utilities',
+        'password generator',
+        'uuid generator',
+        'base64 encoder decoder',
+        'json formatter',
+        'url encoder',
+        'regex tester',
+        'color picker',
+        'hash generator',
+        'developer productivity tools',
+        'coding utilities',
+        'web development tools',
+        'free online tools'
+    ],
+    openGraph: {
+        title: 'Xenkit - Free Developer Tools & Utilities for Modern Development',
+        description: 'Boost your productivity with 25 free online developer tools. No signup required.',
+        type: 'website',
+        images: [
+            {
+                url: '/og-image.png',
+                width: 1200,
+                height: 630,
+                alt: 'Xenkit Developer Tools Homepage'
+            }
+        ]
+    }
+};
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    const ref = useRef(null);
+    const isInView = useInView(ref, { once: true, amount: 0.1 });
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: {
+                staggerChildren: 0.2,
+                delayChildren: 0.1
+            }
+        }
+    };
+
+    const itemVariants = {
+        hidden: { opacity: 0, y: 30 },
+        visible: { opacity: 1, y: 0 }
+    };
+
+    const badgeVariants = {
+        hidden: { opacity: 0, scale: 0.8 },
+        visible: { opacity: 1, scale: 1 }
+    };
+
+    return (
+        <>
+            {/* Skip Navigation Link for Accessibility */}
+            <a
+                href="#main-content"
+                className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-white px-4 py-2 rounded-md z-50"
+            >
+                Skip to main content
+            </a>
+
+            {/* Main content */}
+            <main id="main-content" className="flex flex-col">
+                {/* Hero Section */}
+                <section
+                    ref={ref}
+                    className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-background via-background to-muted/5"
+                    aria-labelledby="hero-heading"
+                >
+                    {/* Background decoration */}
+                    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                        <div className="absolute -top-40 -right-40 w-80 h-80 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+                        <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-secondary/10 rounded-full blur-3xl animate-pulse" />
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+                    </div>
+
+                    <div className="relative z-10 max-w-7xl mx-auto px-4 py-20 sm:px-6 lg:px-8">
+                        <motion.div
+                            variants={containerVariants}
+                            initial="hidden"
+                            animate={isInView ? 'visible' : 'hidden'}
+                            className="text-center space-y-8"
+                        >
+                            {/* Badge */}
+                            <motion.div
+                                variants={badgeVariants}
+                                transition={{ duration: 0.5, ease: 'easeOut' }}
+                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium"
+                            >
+                                <GoZap className="w-4 h-4" />
+                                <span>25 Developer Tools Available</span>
+                            </motion.div>
+
+                            {/* Main Heading */}
+                            <motion.div variants={itemVariants} transition={{ duration: 0.6, ease: 'easeOut' }} className="space-y-6">
+                                <h1
+                                    id="hero-heading"
+                                    className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold tracking-tight leading-tight"
+                                >
+                                    <span className="block">
+                                        <span className="text-gradient-glow">Powerful Tools</span>
+                                    </span>
+                                    <span className="block mt-2">For Modern Developers</span>
+                                </h1>
+
+                                <p className="max-w-3xl mx-auto text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed">
+                                    Your ultimate toolkit with all the essential utilities for development, security and productivity in one place.
+                                    <span className="text-foreground font-medium"> Free, fast, and secure.</span>
+                                </p>
+                            </motion.div>
+
+                            {/* Feature highlights */}
+                            <motion.div
+                                variants={itemVariants}
+                                transition={{ duration: 0.6, ease: 'easeOut' }}
+                                className="flex flex-wrap justify-center items-center gap-6 text-sm text-muted-foreground"
+                            >
+                                <div className="flex items-center gap-2">
+                                    <Shield className="w-4 h-4 text-green-500" />
+                                    <span>No signup required</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <FaRegClock className="w-4 h-4 text-blue-500" />
+                                    <span>Instant results</span>
+                                </div>
+                                <div className="flex items-center gap-2">
+                                    <Zap className="w-4 h-4 text-yellow-500" />
+                                    <span>Always free</span>
+                                </div>
+                            </motion.div>
+
+                            {/* CTA Buttons */}
+                            <motion.div
+                                variants={itemVariants}
+                                transition={{ duration: 0.6, ease: 'easeOut' }}
+                                className="flex flex-col sm:flex-row items-center justify-center gap-4"
+                            >
+                                <Link href="/tools">
+                                    <motion.button
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-primary to-secondary text-white font-semibold rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden"
+                                    >
+                                        <span className="relative z-10">Explore Tools</span>
+                                        <FaArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+                                        <div className="absolute inset-0 bg-gradient-to-r from-primary/80 to-secondary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                                    </motion.button>
+                                </Link>
+
+                                <Link href="#features">
+                                    <motion.button
+                                        whileHover={{ scale: 1.05 }}
+                                        whileTap={{ scale: 0.95 }}
+                                        className="inline-flex items-center gap-2 px-6 py-3 border border-muted-foreground/20 rounded-xl font-medium text-foreground hover:border-primary/50 hover:text-primary transition-all duration-300"
+                                    >
+                                        Learn More
+                                    </motion.button>
+                                </Link>
+                            </motion.div>
+
+                            {/* Scroll indicator */}
+                            <motion.div variants={itemVariants} transition={{ duration: 0.6, ease: 'easeOut' }} className="pt-12">
+                                <motion.div
+                                    animate={{ y: [0, 8, 0] }}
+                                    transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                                    className="w-6 h-10 border-2 border-muted-foreground/30 rounded-full mx-auto flex justify-center"
+                                >
+                                    <motion.div
+                                        animate={{ y: [0, 12, 0] }}
+                                        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                                        className="w-1 h-3 bg-muted-foreground/50 rounded-full mt-2"
+                                    />
+                                </motion.div>
+                            </motion.div>
+                        </motion.div>
+                    </div>
+                </section>
+            </main>
+        </>
+    );
 }
