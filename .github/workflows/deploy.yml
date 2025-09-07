@@ -47,7 +47,7 @@ jobs:
                   script: |
                       set -e
                       cd ${{ secrets.VPS_PROJECT_PATH }}
-                      docker-compose pull
-                      docker-compose up -d --remove-orphans
+                      docker compose pull
+                      docker compose up -d --remove-orphans
                       echo "Pruning old docker images..."
                       docker image prune -af
