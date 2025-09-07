@@ -3,6 +3,8 @@ import Link from 'next/link';
 import { appNavMenu } from '@/components/layout/app-nav-menu';
 import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
+import { AppThemeToggle } from '@/components/layout/app-theme-toggle';
+import { Menu } from 'lucide-react';
 
 export function AppHeader() {
     const pathname = usePathname();
@@ -33,6 +35,13 @@ export function AppHeader() {
                         </Button>
                     ))}
                 </nav>
+
+                <div className="flex items-center space-x-2">
+                    <AppThemeToggle />
+                    <Button type="button" variant="ghost" className="md:hidden">
+                        <Menu className="size-5" />
+                    </Button>
+                </div>
             </div>
         </header>
     );
