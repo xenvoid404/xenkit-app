@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, type Variants } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { X } from 'lucide-react';
 import { AppSidebarMenu } from '@/components/layout/app-nav-link';
@@ -45,12 +45,12 @@ export function AppSidebar({ isOpen, onClose }: AppSidebarProps) {
     );
 }
 
-const sidebarBackdropAnimate = {
+const sidebarBackdropAnimate: Variants = {
     open: { opacity: 1, transition: { duration: 0.6 } },
     close: { opacity: 0, transition: { duration: 0.4 } }
 };
 
-const sidebarContentAnimate = {
+const sidebarContentAnimate: Variants = {
     open: { x: '0%', transition: { type: 'spring', stiffness: 300, damping: 30 } },
     close: { x: '100%', transition: { type: 'spring', stiffness: 300, damping: 30 } }
 };
