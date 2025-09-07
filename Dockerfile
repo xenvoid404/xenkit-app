@@ -1,4 +1,5 @@
 FROM node:22-slim AS base
+RUN apt update && apt install -y openssl
 WORKDIR /app
 
 FROM base AS deps
