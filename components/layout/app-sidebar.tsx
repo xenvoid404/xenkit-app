@@ -17,7 +17,6 @@ export function AppSidebar() {
                 <motion.div
                     key="sidebar-content"
                     className="flex flex-col h-full"
-                    onClick={e => e.stopPropagation()}
                     variants={sidebarContentAnimate}
                     initial="close"
                     animate="open"
