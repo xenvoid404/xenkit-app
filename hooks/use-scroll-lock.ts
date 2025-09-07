@@ -18,8 +18,8 @@ export function useScrollLock() {
         if (body) {
             const originalOverflow = body.style.getPropertyValue('--original-overflow');
             body.style.overflow = originalOverflow || '';
+            body.style.removeProperty('--original-overflow');
         }
-        body.style.removeProperty('--original-overflow');
     }, []);
 
     return [lockScroll, unlockScroll];
