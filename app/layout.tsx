@@ -1,9 +1,8 @@
 import { type Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { useSidebar } from '@/hooks/use-sidebar';
+import { AppThemeProvider } from '@/components/layout/app-theme-provider';
 import { AppHeader } from '@/components/layout/app-header';
 import { AppSidebar } from '@/components/layout/app-sidebar';
-import { AppThemeProvider } from '@/components/layout/app-theme-provider';
 import '@/app/styles/globals.css';
 
 const geistSans = Geist({
@@ -26,16 +25,14 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const { isOpen, toggle } = useSidebar();
-
     return (
         <html lang="en" translate="no">
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}>
                 <AppThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
                     <div className="flex min-h-screen bg-background text-foreground">
-                        <AppSidebar isOpen={isOpen} onClose={toggle} />
+                        <AppSidebar />
                         <div className="flex flex-1 flex-col">
-                            <AppHeader openSidebar={toggle} />
+                            <AppHeader />
                             <main className="flex flex-1 flex-col">{children}</main>
                         </div>
                     </div>
