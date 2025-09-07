@@ -5,5 +5,5 @@ import { useSidebarStore } from '@/lib/store/sidebar-store';
 export function SidebarWrapper({ children }: { children: React.ReactNode }) {
     const { isOpen } = useSidebarStore();
 
-    return <AnimatePresence>{isOpen && { children }}</AnimatePresence>;
+    return <AnimatePresence>{isOpen && children}</AnimatePresence>;
 }
