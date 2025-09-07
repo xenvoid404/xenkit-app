@@ -1,5 +1,6 @@
 services:
     xenkit-app:
+        container_name: xenkit-app
         build:
             context: .
             dockerfile: Dockerfile
