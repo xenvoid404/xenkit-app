@@ -30,7 +30,7 @@ export function AppSidebar() {
                             exit="close"
                         >
                             <div className="flex justify-end p-6">
-                                <Button type="button" variant="ghost" size="icon" onClick={close}>
+                                <Button type="button" variant="ghost" size="icon" onClick={toggle}>
                                     <X />
                                 </Button>
                             </div>

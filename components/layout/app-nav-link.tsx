@@ -1,9 +1,10 @@
 'use client';
 import Link from 'next/link';
-import { motion, type Variants } from 'framer-motion';
+import { m, LazyMotion, domAnimation, type Variants } from 'framer-motion';
 import { type LucideIcon, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { usePathname } from 'next/navigation';
+import { useSidebarStore } from '@/lib/store/sidebar-store';
 
 interface Navigation {
     title: string;
@@ -19,19 +20,19 @@ const navigations: Navigation[] = [
     { title: 'Github', href: 'https://github.com/xenvoid404', isExternal: true, icon: Github }
 ];
 
-function AppNavLink({ item }: { item: Navigation }) {
+function AppNavLink({ item, onClick }: { item: Navigation; onClick?: () => void }) {
     const pathname = usePathname();
     const isActive = !item.isExternal && pathname === item.href;
 
     return (
         <Button variant={isActive ? 'secondary' : 'ghost'} asChild>
             {item.isExternal ? (
-                <a href={item.href} target="_blank" rel="noopener noreferrer">
+                <a href={item.href} target="_blank" rel="noopener noreferrer" onClick={onClick}>
                     {item.icon && <item.icon />}
                     {item.title}
                 </a>
             ) : (
-                <Link href={item.href}>
+                <Link href={item.href} onClick={onClick}>
                     {item.icon && <item.icon />}
                     {item.title}
                 </Link>
@@ -51,21 +52,25 @@ const menuItemAnimate: Variants = {
 };
 
 export function AppSidebarMenu() {
+    const { close } = useSidebarStore();
+
     return (
-        <motion.nav
-            key="menu-container"
-            className="flex flex-col items-center gap-8 w-full"
-            variants={menuContainerAnimate}
-            initial="close"
-            animate="open"
-            exit="close"
-        >
-            {navigations.map(item => (
-                <motion.div key={item.title} className="w-full text-center" variants={menuItemAnimate}>
-                    <AppNavLink item={item} />
-                </motion.div>
-            ))}
-        </motion.nav>
+        <LazyMotion features={domAnimation}>
+            <m.nav
+                key="menu-container"
+                className="flex flex-col items-center gap-8 w-full"
+                variants={menuContainerAnimate}
+                initial="close"
+                animate="open"
+                exit="close"
+            >
+                {navigations.map(item => (
+                    <m.div key={item.title} className="w-full text-center" variants={menuItemAnimate}>
+                        <AppNavLink item={item} onClick={close} />
+                    </m.div>
+                ))}
+            </m.nav>
+        </LazyMotion>
     );
 }
 
