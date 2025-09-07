@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, type Variants } from 'framer-motion';
 import { type LucideIcon, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { usePathname } from 'next/navigation';
@@ -40,12 +40,12 @@ function AppNavLink({ item }: { item: Navigation }) {
     );
 }
 
-const menuContainerAnimate = {
+const menuContainerAnimate: Variants = {
     open: { transition: { delayChildren: 0.2, staggerChildren: 0.1 } },
     close: { transition: { delayChildren: 0.07, staggerChildren: -1 } }
 };
 
-const menuItemAnimate = {
+const menuItemAnimate: Variants = {
     open: { x: 0, opacity: 1, transition: { type: 'spring', stiffness: 400, damping: 20 } },
     close: { x: 25, opacity: 0 }
 };
