@@ -47,6 +47,7 @@ jobs:
                   script: |
                       set -e
                       cd ${{ secrets.VPS_PROJECT_PATH }}
+                      echo "APP_ENV=production" > .env
                       docker compose pull
                       docker compose up -d --remove-orphans
                       echo "Pruning old docker images..."
