@@ -25,7 +25,7 @@ function AppNavLink({ item, onClick }: { item: Navigation; onClick?: () => void 
     const isActive = !item.isExternal && pathname === item.href;
 
     return (
-        <Button variant={isActive ? 'primary' : 'ghost'} asChild>
+        <Button variant={isActive ? 'default' : 'ghost'} asChild>
             {item.isExternal ? (
                 <a href={item.href} target="_blank" rel="noopener noreferrer" onClick={onClick}>
                     {item.icon && <item.icon />}
