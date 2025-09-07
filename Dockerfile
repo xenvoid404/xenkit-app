@@ -26,6 +26,6 @@ COPY --from=builder --chown=xenkit:xenkit /app/public ./public
 COPY --from=builder --chown=xenkit:xenkit /app/.next/standalone ./
 COPY --from=builder --chown=xenkit:xenkit /app/.next/static ./.next/static
 COPY --from=builder --chown=xenkit:xenkit /app/prisma ./prisma
-COPY --from=builder --chown=xenkit:xenkit /app/node_modules/.prisma ./node_modules/.prisma
+
 EXPOSE 3000
 CMD ["node", "server.js"]
