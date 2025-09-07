@@ -1,7 +1,5 @@
 'use client';
 import { AppSidebarMenu } from '@/components/layout/app-nav-link';
-import { SidebarWrapper } from '@/components/layout/sidebar-wrapper';
-import { CloseButton } from '@/components/layout/close-button';
 import { m, AnimatePresence, LazyMotion, domAnimation, type Variants } from 'framer-motion';
 import { useSidebarStore } from '@/lib/store/sidebar-store';
 import { X } from 'lucide-react';
