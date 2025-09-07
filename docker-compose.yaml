@@ -1,13 +1,15 @@
 services:
-    xenkit-app:
-        container_name: xenkit-app
-        build:
-            context: .
-            dockerfile: Dockerfile
-        restart: always
-        networks:
-            - app-network
+  xenkit-app:
+    container_name: xenkit-app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    ports:
+      - "3000:3000"
+    networks:
+      - app-network
 
 networks:
-    app-network:
-        driver: bridge
+  app-network:
+    driver: bridge
