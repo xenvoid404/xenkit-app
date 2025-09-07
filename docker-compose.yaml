@@ -1,0 +1,12 @@
+services:
+    xenkit-app:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        restart: always
+        networks:
+            - app-network
+
+networks:
+    app-network:
+        driver: bridge
