@@ -1,14 +1,14 @@
-'use client';
 import Link from 'next/link';
-import { appNavMenu } from '@/components/layout/app-nav-menu';
-import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { AppThemeToggle } from '@/components/layout/app-theme-toggle';
 import { Menu } from 'lucide-react';
+import { AppHeaderMenu } from '@/components/layout/app-nav-link';
 
-export function AppHeader() {
-    const pathname = usePathname();
+interface AppHeaderProps {
+    openSidebar: () => void;
+}
 
+export function AppHeader({ openSidebar }: AppHeaderProps) {
     return (
         <header className="sticky top-0 z-20 flex h-14 items-center border border-b border-muted">
             <div className="flex w-full items-center justify-between px-6">
@@ -18,27 +18,11 @@ export function AppHeader() {
                     </Link>
                 </div>
 
-                <nav className="hidden md:flex h-full items-center space-x-1">
-                    {appNavMenu.map(item => (
-                        <Button key={item.title} variant={!item.isExternal && pathname === item.href ? 'secondary' : 'ghost'} asChild>
-                            {item.isExternal ? (
-                                <a href={item.href} target="_blank" rel="noopener noreferrer">
-                                    {item.icon && <item.icon />}
-                                    {item.title}
-                                </a>
-                            ) : (
-                                <Link href={item.href}>
-                                    {item.icon && <item.icon />}
-                                    {item.title}
-                                </Link>
-                            )}
-                        </Button>
-                    ))}
-                </nav>
+                <AppHeaderMenu />
 
                 <div className="flex items-center space-x-2">
                     <AppThemeToggle />
-                    <Button type="button" variant="ghost" className="md:hidden">
+                    <Button type="button" variant="ghost" className="md:hidden" onClick={openSidebar}>
                         <Menu className="size-5" />
                     </Button>
                 </div>
