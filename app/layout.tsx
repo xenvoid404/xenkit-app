@@ -26,7 +26,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" translate="no">
+        <html lang="en" translate="no" suppressHydrationWarning>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}>
                 <AppThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
                     <div className="flex min-h-screen bg-background text-foreground">
