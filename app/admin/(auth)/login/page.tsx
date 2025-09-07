@@ -13,7 +13,10 @@ export default function AdminLogin() {
     const [errorMessage, dispatch] = useFormState(authenticate, undefined);
 
     return (
-        <AdminAuthLayout heading="Login Admin">
+        <AdminAuthLayout>
+            <div className="space-y-3 text-center">
+                <h1 className="text-xl font-semibold">Login Admin</h1>
+            </div>
             <form action={dispatch} className="space-y-4">
                 <div className="space-y-2">
                     <Label htmlFor="email">Email</Label>
