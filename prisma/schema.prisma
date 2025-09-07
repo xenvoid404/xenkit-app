@@ -10,6 +10,8 @@ url      = env("DATABASE_URL")
 enum Role {
 SUPER_ADMIN
 ADMIN
+EDITOR
+USER
 }
 
 model User {
