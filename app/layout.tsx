@@ -1,6 +1,6 @@
 import { type Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
-import { useSidebar } from '@/hooks/use-sidebar';
+import { AppHeader } from '@/components/layout/app-header';
 import '@/app/styles/globals.css';
 
 const geistSans = Geist({
@@ -23,13 +23,12 @@ export default function RootLayout({
 }: Readonly<{
     children: React.ReactNode;
 }>) {
-    const { isOpen, toggle } = useSidebar();
-
     return (
         <html lang="en" translate="no">
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}>
                 <div className="flex min-h-screen bg-background text-foreground">
                     <div className="flex flex-1 flex-col">
+                        <AppHeader />
                         <main className="flex flex-1 flex-col">{children}</main>
                     </div>
                 </div>
