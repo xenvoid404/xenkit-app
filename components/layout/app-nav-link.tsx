@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { type LucideIcon, Github } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { usePathname } from 'next/navigation';
@@ -19,6 +19,27 @@ const navigations: Navigation[] = [
     { title: 'Github', href: 'https://github.com/xenvoid404', isExternal: true, icon: Github }
 ];
 
+function AppNavLink({ item }: { item: Navigation }) {
+    const pathname = usePathname();
+    const isActive = !item.isExternal && pathname === item.href;
+
+    return (
+        <Button variant={isActive ? 'secondary' : 'ghost'} asChild>
+            {item.isExternal ? (
+                <a href={item.href} target="_blank" rel="noopener noreferrer">
+                    {item.icon && <item.icon />}
+                    {item.title}
+                </a>
+            ) : (
+                <Link href={item.href}>
+                    {item.icon && <item.icon />}
+                    {item.title}
+                </Link>
+            )}
+        </Button>
+    );
+}
+
 const menuContainerAnimate = {
     open: { transition: { delayChildren: 0.2, staggerChildren: 0.1 } },
     close: { transition: { delayChildren: 0.07, staggerChildren: -1 } }
@@ -30,8 +51,6 @@ const menuItemAnimate = {
 };
 
 export function AppSidebarMenu() {
-    const pathname = usePathname();
-
     return (
         <motion.nav
             key="menu-container"
@@ -43,19 +62,7 @@ export function AppSidebarMenu() {
         >
             {navigations.map(item => (
                 <motion.div key={item.title} className="w-full text-center" variants={menuItemAnimate}>
-                    <Button variant={!item.isExternal && pathname === item.href ? 'secondary' : 'ghost'} asChild>
-                        {item.isExternal ? (
-                            <a href={item.href} target="_blank" rel="noopener noreferrer">
-                                {item.icon && <item.icon />}
-                                {item.title}
-                            </a>
-                        ) : (
-                            <Link href={item.href}>
-                                {item.icon && <item.icon />}
-                                {item.title}
-                            </Link>
-                        )}
-                    </Button>
+                    <AppNavLink item={item} />
                 </motion.div>
             ))}
         </motion.nav>
@@ -63,24 +70,10 @@ export function AppSidebarMenu() {
 }
 
 export function AppHeaderMenu() {
-    const pathname = usePathname();
-
     return (
         <nav className="hidden md:flex h-full items-center space-x-1">
             {navigations.map(item => (
-                <Button key={item.title} variant={!item.isExternal && pathname === item.href ? 'secondary' : 'ghost'} asChild>
-                    {item.isExternal ? (
-                        <a href={item.href} target="_blank" rel="noopener noreferrer">
-                            {item.icon && <item.icon />}
-                            {item.title}
-                        </a>
-                    ) : (
-                        <Link href={item.href}>
-                            {item.icon && <item.icon />}
-                            {item.title}
-                        </Link>
-                    )}
-                </Button>
+                <AppNavLink key={item.title} item={item} />
             ))}
         </nav>
     );
