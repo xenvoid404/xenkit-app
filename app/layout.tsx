@@ -29,11 +29,13 @@ export default function RootLayout({
         <html lang="en" translate="no" suppressHydrationWarning>
             <body className={`${geistSans.variable} ${geistMono.variable} antialiased scroll-smooth`}>
                 <AppThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-                    <div className="flex min-h-screen bg-background text-foreground">
+                    <div className="flex min-h-svh">
                         <AppSidebar />
-                        <div className="flex flex-1 flex-col">
+                        <div className="flex flex-1 flex-col overflow-hidden">
                             <AppHeader />
-                            <main className="flex flex-1 flex-col">{children}</main>
+                            <main className="flex-1 overflow-y-auto">
+                                <div className="flex flex-col gap-4 p-4">{children}</div>
+                            </main>
                         </div>
                     </div>
                 </AppThemeProvider>
