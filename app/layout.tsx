@@ -34,9 +34,16 @@ export default function RootLayout({
                         <div className="flex flex-1 flex-col overflow-hidden">
                             <AppHeader />
                             <main className="flex-1 overflow-y-auto">
-                                <div className="flex flex-col gap-4 p-4">{children}</div>
+                                <div className="flex flex-col gap-4">{children}</div>
                             </main>
                         </div>
+                    </div>
+                </AppThemeProvider>
+            </body>
+        </html>
+    );
+}
+  </div>
                     </div>
                 </AppThemeProvider>
             </body>

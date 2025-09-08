@@ -19,6 +19,7 @@ export function AppSidebar() {
                         initial="close"
                         animate="open"
                         exit="close"
+                        onClick={toggle}
                     >
                         <m.div
                             key="sidebar-content"

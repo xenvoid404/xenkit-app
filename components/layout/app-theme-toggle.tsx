@@ -21,9 +21,9 @@ export function AppThemeToggle() {
     return (
         <Button type="button" variant="ghost" onClick={toggleTheme} aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} theme`}>
             {isDarkMode ? (
-                <Sun className="size-5 text-yellow-600 group-hover:rotate:90 transition-all duration-300 ease-in-out" />
+                <Sun className="size-5 text-yellow-600 hover:rotate-90 transition-all duration-300 ease-in-out" />
             ) : (
-                <Moon className="size-5 text-slate-600 group-hover:-rotate-12 transition-all duration-300 ease-in-out" />
+                <Moon className="size-5 text-slate-600 hover:-rotate-12 transition-all duration-300 ease-in-out" />
             )}
         </Button>
     );
