@@ -1,20 +1,14 @@
-'''
 import Link from 'next/link';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Wrench, BadgeCheck, Clock, Zap, ArrowRight } from 'lucide-react';
 
-// Data untuk fitur-fitur utama, lebih mudah dikelola di sini.
 const keyFeatures = [
     { icon: BadgeCheck, text: 'No signup required' },
     { icon: Clock, text: 'Instant results' },
     { icon: Zap, text: 'Always free' }
 ];
 
-/**
- * Komponen untuk bagian header utama (judul dan subjudul).
- * Menggunakan tag <header> untuk semantic grouping.
- */
 const HeroHeader = () => (
     <header className="space-y-8">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1]">
@@ -28,10 +22,6 @@ const HeroHeader = () => (
     </header>
 );
 
-/**
- * Komponen untuk daftar fitur utama.
- * Menggunakan <ul> dan <li> untuk struktur daftar yang semantik.
- */
 const KeyFeaturesList = () => (
     <ul className="flex flex-wrap justify-center items-center gap-4 sm:gap-8 text-sm text-muted-foreground">
         {keyFeatures.map(({ icon: Icon, text }) => (
@@ -70,4 +60,3 @@ export default function Home() {
         </section>
     );
 }
-'''
