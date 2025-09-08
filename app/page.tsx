@@ -10,6 +10,17 @@ export default function Home() {
                         <Wrench className="size-4" />
                         25+ Developer Tools Available
                     </Badge>
+
+                    <div className="space-y-8">
+                        <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1]">
+                            <span className="block text-accent">Powerful Tools</span>
+                            <span className="block text-foreground">For Modern Developers</span>
+                        </h1>
+                        <p className="max-w-3xl mx-auto text-lg sm:text-xl lg:text-2xl text-muted-foreground leading-relaxed font-light">
+                            Your ultimate toolkit with all the essential utilities for development, security and productivity in one place.
+                            <span className="text-foreground font-medium block mt-2 sm:inline sm:mt-0"> Free, fast, and secure.</span>
+                        </p>
+                    </div>
                 </div>
             </div>
         </section>
