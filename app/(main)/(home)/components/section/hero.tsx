@@ -39,7 +39,7 @@ export function Hero() {
 
     return (
         <HeroWrapper>
-            <section className="relative min-h-dvh flex items-center justify-center bg-gradient-to-br from-background via-background to-muted/20">
+            <section className="relative min-h-svh flex items-center justify-center bg-gradient-to-br from-background via-background to-muted/20">
                 <div className="relative z-10 mx-auto max-w-8xl px-4 py-20 sm:px-6 lg:px-8">
                     <HeroSubWrapper>
                         <AnimatedItem>{badge}</AnimatedItem>
