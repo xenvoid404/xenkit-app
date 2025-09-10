@@ -1,15 +1,14 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
-import { Wrench, BadgeCheck, Clock, Zap, ArrowRight } from 'lucide-react';
+import { Wrench, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { HeroWrapper, HeroSubWrapper } from '../wrapper/hero-wrapper';
 import { AnimatedHeader } from '../hero/animated-header';
-import { AnimatedFeatures } from '../hero/animated-features';
 import { AnimatedItem } from '../hero/animated-item';
 
 export function Hero() {
     const badge = (
-        <Badge variant="outline" className="gap-3 py-3 px-4 text-primary text-md">
+        <Badge variant="outline" className="gap-3 py-3 px-4 text-primary text-sm">
             <Wrench className="size-5" />
             <span>25+ Developer Tools Available</span>
         </Badge>
@@ -29,19 +28,6 @@ export function Hero() {
         </p>
     );
 
-    const keyFeatures = [
-        { icon: BadgeCheck, text: 'No signup required' },
-        { icon: Clock, text: 'Instant result' },
-        { icon: Zap, text: 'Always free' }
-    ];
-
-    const features = keyFeatures.map(({ icon: Icon, text }) => (
-        <Badge key={text} variant="outline">
-            <Icon className="size-5" />
-            <span>{text}</span>
-        </Badge>
-    ));
-
     const cta = (
         <Button asChild size="lg" className="group">
             <Link href="#featured-tools">
@@ -53,12 +39,11 @@ export function Hero() {
 
     return (
         <HeroWrapper>
-            <section className="relative flex min-h-svh items-center justify-center bg-gradient-to-br from-background via-background to-muted/20">
+            <section className="relative flex items-center justify-center bg-gradient-to-br from-background via-background to-muted/20">
                 <div className="relative z-10 mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
                     <HeroSubWrapper>
                         <AnimatedItem>{badge}</AnimatedItem>
                         <AnimatedHeader heading={heading} paragraph={paragraph} />
-                        <AnimatedFeatures features={features} />
                         <AnimatedItem>{cta}</AnimatedItem>
                     </HeroSubWrapper>
                 </div>
