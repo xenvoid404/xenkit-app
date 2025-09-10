@@ -9,7 +9,7 @@ export function Header() {
             <div className="flex w-full items-center justify-between px-6">
                 <div className="flex h-full items-center">
                     <Link href="/" aria-label="Xenkit - Go to homepage">
-                        <h1 className="text-2xl md:text-3xl font-bold text-primary">Xenkit</h1>
+                        <span className="text-2xl md:text-3xl font-bold text-primary">Xenkit</span>
                     </Link>
                 </div>
                 <HeaderMenu />
