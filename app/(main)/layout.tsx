@@ -173,11 +173,11 @@ export default function MainLayout({ children }: Readonly<{ children: ReactNode 
                     `}
                 </Script>
                 <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-                    <div className="flex min-h-screen">
+                    <div className="flex min-h-svh">
                         <Sidebar />
-                        <div className="flex flex-1 flex-col overflow-y-auto">
+                        <div className="flex flex-1 flex-col overflow-hidden">
                             <Header />
-                            <main className="flex-1">
+                            <main className="flex-1 overflow-y-auto">
                                 <div className="flex flex-col gap-4">{children}</div>
                             </main>
                             <Footer />
