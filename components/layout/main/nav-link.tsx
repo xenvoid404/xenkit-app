@@ -4,7 +4,20 @@ import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { useSidebarStore } from '@/lib/store/sidebar-store';
 import { m, LazyMotion, domAnimation, type Variants } from 'framer-motion';
-import { navigations, type Navigation } from '@/data/navigations';
+
+interface Navigation {
+    title: string;
+    href: string;
+    isExternal: boolean;
+    icon?: LucideIcon;
+}
+
+const navigations: Navigation[] = [
+    { title: 'Home', href: '/', isExternal: false },
+    { title: 'Tools', href: '/tools', isExternal: false },
+    { title: 'About', href: '/about', isExternal: false },
+    { title: 'Github', href: 'https://github.com/xenvoid404', isExternal: true, icon: Github }
+];
 
 export function NavLink({ item, onClick }: { item: Navigation; onClick?: () => void }) {
     const pathname = usePathname();
