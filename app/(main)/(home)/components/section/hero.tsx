@@ -1,10 +1,18 @@
 'use client';
+
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Wrench, BadgeCheck, Clock, Zap, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { m, LazyMotion, domAnimation, type Variants } from 'framer-motion';
 
+// A consistent transition for a smooth "ease-out" effect
+const smoothTransition = {
+    duration: 0.6,
+    ease: [0.43, 0.13, 0.23, 0.96]
+};
+
+// Main container variant for staggering children
 const containerVariants: Variants = {
     hidden: {},
     visible: {
@@ -14,16 +22,13 @@ const containerVariants: Variants = {
     }
 };
 
+// Generic item variant, animates from bottom
 const itemVariants: Variants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
         opacity: 1,
         y: 0,
-        transition: {
-            type: 'spring',
-            stiffness: 100,
-            damping: 10
-        }
+        transition: smoothTransition
     }
 };
 
@@ -51,7 +56,7 @@ export function Hero() {
 
 const HeroBadge = () => (
     <m.div variants={itemVariants}>
-        <Badge variant="outline" className="gap-3 py-2 px-4 text-primary">
+        <Badge variant="outline" className="text-primary">
             <Wrench className="size-5" />
             <span>25+ Developer Tools Available</span>
         </Badge>
@@ -68,16 +73,13 @@ const HeroHeader = () => {
         }
     };
 
+    // Title variant, animates from bottom
     const titleSpanVariants: Variants = {
-        hidden: { opacity: 0, y: -30 },
+        hidden: { opacity: 0, y: 20 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: {
-                type: 'spring',
-                stiffness: 120,
-                damping: 12
-            }
+            transition: smoothTransition
         }
     };
 
@@ -91,7 +93,10 @@ const HeroHeader = () => {
                     For Modern Developers
                 </m.span>
             </h1>
-            <m.p className="mx-auto max-w-3xl font-light leading-relaxed text-muted-foreground sm:text-xl lg:text-2xl" variants={itemVariants}>
+            <m.p
+                className="mx-auto max-w-3xl font-light leading-relaxed text-muted-foreground sm:text-xl lg:text-2xl"
+                variants={itemVariants}
+            >
                 Your ultimate toolkit with all the essential utilities for development, security and productivity in one place.
                 <span className="mt-2 block font-medium text-foreground sm:mt-0 sm:inline"> Free, fast, and secure.</span>
             </m.p>
@@ -115,21 +120,21 @@ const KeyFeaturesList = () => {
         }
     };
 
+    // List item variant, animates from bottom
     const listItemVariants: Variants = {
-        hidden: { opacity: 0, scale: 0.8 },
+        hidden: { opacity: 0, y: 20 },
         visible: {
             opacity: 1,
-            scale: 1,
-            transition: {
-                type: 'spring',
-                stiffness: 200,
-                damping: 15
-            }
+            y: 0,
+            transition: smoothTransition
         }
     };
 
     return (
-        <m.ul className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground sm:gap-8" variants={listContainerVariants}>
+        <m.ul
+            className="flex flex-wrap items-center justify-center gap-4 text-sm text-muted-foreground sm:gap-8"
+            variants={listContainerVariants}
+        >
             {keyFeatures.map(({ icon: Icon, text }) => (
                 <m.li key={text} variants={listItemVariants}>
                     <Badge variant="outline">
