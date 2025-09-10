@@ -3,7 +3,7 @@ import { FeaturedTools } from '@/components/sections/featured-tools';
 
 export default function Page() {
     return (
-        <div id="main-content" className="flex flex-col">
+        <div id="main-content">
             <Hero />
             <FeaturedTools />
         </div>
