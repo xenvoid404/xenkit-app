@@ -9,7 +9,7 @@ import { AnimatedItem } from '../hero/animated-item';
 
 export function Hero() {
     const badge = (
-        <Badge variant="outline" className="gap-3 py-3 px-4 text-primary">
+        <Badge variant="outline" className="gap-3 py-3 px-4 text-primary text-2xl">
             <Wrench className="size-5" />
             <span>25+ Developer Tools Available</span>
         </Badge>
@@ -54,7 +54,7 @@ export function Hero() {
     return (
         <HeroWrapper>
             <section className="relative flex items-center justify-center bg-gradient-to-br from-background via-background to-muted/20">
-                <div className="relative z-10 mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+                <div className="relative z-10 mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8">
                     <HeroSubWrapper>
                         <AnimatedItem>{badge}</AnimatedItem>
                         <AnimatedHeader heading={heading} paragraph={paragraph} />
