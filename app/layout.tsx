@@ -117,7 +117,6 @@ export default function RootLayout({
 }: Readonly<{
     children: ReactNode;
 }>) {
-    // JSON-LD structured data for the website
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
@@ -140,9 +139,7 @@ export default function RootLayout({
                 '@type': 'ImageObject',
                 url: 'https://xenkit.com/logo.png'
             },
-            sameAs: [
-                'https://github.com/xenvoid404'
-            ]
+            sameAs: ['https://github.com/xenvoid404']
         },
         mainEntity: {
             '@type': 'ItemList',
@@ -174,14 +171,11 @@ export default function RootLayout({
                 <link rel="apple-touch-icon" href="/favicon-180.png" />
                 <link rel="shortcut icon" href="/favicon.ico" />
                 <meta name="google-site-verification" content="your-google-verification-code-here" />
-                
+
                 {/* JSON-LD structured data */}
-                <script
-                    type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-                />
+                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             </head>
-            <body className={`${figtree.variable} font-figtree antialiased bg-background text-foreground`}>
+            <body className={`${figtree.variable} antialiased`}>
                 {/* Google Analytics */}
                 <Script src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" strategy="afterInteractive" />
                 <Script id="google-analytics" strategy="afterInteractive">
