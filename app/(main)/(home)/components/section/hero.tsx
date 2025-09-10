@@ -18,14 +18,14 @@ export function Hero() {
     );
 }
 
-const HeroBadge = () => {
+const HeroBadge = () => (
     <Badge variant="outline" className="text-primary">
         <Wrench className="size-5" />
         <span>25+ Developer Tools Available</span>
-    </Badge>;
-};
+    </Badge>
+);
 
-const HeroHeader = () => {
+const HeroHeader = () => (
     <header className="space-y-8">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight leading-[1.1]">
             <span className="block text-primary">Powerful Tools</span>
@@ -35,8 +35,8 @@ const HeroHeader = () => {
             Your ultimate toolkit with all the essential utilities for development, security and productivity in one place.
             <span className="text-foreground font-medium block mt-2 sm:inline sm:mt-0"> Free, fast, and secure.</span>
         </p>
-    </header>;
-};
+    </header>
+);
 
 const KeyFeaturesList = () => {
     const keyFeatures = [
@@ -59,11 +59,11 @@ const KeyFeaturesList = () => {
     );
 };
 
-const CtaButton = () => {
+const CtaButton = () => (
     <Button asChild size="lg" className="group">
         <Link href="#featured-tools">
             Explore Tools
             <ArrowRight className="size-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
-    </Button>;
-};
+    </Button>
+);
