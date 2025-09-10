@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/provider/theme-provider';
 import { Header } from '@/components/layout/main/header';
 import { Sidebar } from '@/components/layout/main/sidebar';
 import { Footer } from '@/components/layout/main/footer';
+import '@/app/styles/globals.css';
 
 const figtree = Figtree({
     variable: '--font-figtree',
