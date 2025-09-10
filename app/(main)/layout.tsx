@@ -161,7 +161,7 @@ export default function MainLayout({ children }: Readonly<{ children: ReactNode 
     return (
         <html lang="en" className="scroll-smooth">
             <body className={`${figtree.variable} antialiased`}>
-                <Script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+                <Script id="json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
                 <Script src="https://www.googletagmanager.com/gtag/js?id=G-KQGY9YHHQW" strategy="afterInteractive" />
                 <Script id="google-analytics" strategy="afterInteractive">
                     {`
