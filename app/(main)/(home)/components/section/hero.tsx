@@ -1,6 +1,7 @@
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Wrench, BadgeCheck, Clock, Zap, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export function Hero() {
     return (
