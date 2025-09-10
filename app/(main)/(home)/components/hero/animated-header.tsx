@@ -1,7 +1,7 @@
 'use client';
 import { m, type Variants } from 'framer-motion';
 
-const smoothTransition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] };
+const smoothTransition = { duration: 0.6, ease: [0.43, 0.13, 0.23, 0.96] as const };
 
 const parentVariants: Variants = {
     hidden: {},
