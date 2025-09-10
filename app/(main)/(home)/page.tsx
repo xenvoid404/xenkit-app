@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     }
 };
 
-export default function HomePage() {
+export default function Page() {
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'WebPage',
@@ -71,10 +71,7 @@ export default function HomePage() {
 
     return (
         <>
-            <script
-                type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            />
+            <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             {/* Skip Navigation Link for Accessibility */}
             <a
                 href="#main-content"

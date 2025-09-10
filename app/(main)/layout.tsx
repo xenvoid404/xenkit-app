@@ -1,10 +1,11 @@
-import type { Metadata, Viewport } from 'next';
+import { type Metadata, type Viewport } from 'next';
 import { type ReactNode } from 'react';
 import { Figtree } from 'next/font/google';
 import Script from 'next/script';
-import { ThemeProvider } from '@/contexts/theme-provider';
-import AppLayout from '@/layouts/app-layout';
-import './globals.css';
+import { ThemeProvider } from '@/components/provider/theme-provider';
+import { Header } from '@/components/layout/main/header';
+import { Sidebar } from '@/components/layout/main/sidebar';
+import { Footer } from '@/components/layout/main/footer';
 
 const figtree = Figtree({
     variable: '--font-figtree',
@@ -20,19 +21,22 @@ export const viewport: Viewport = {
     maximumScale: 5,
     userScalable: true,
     themeColor: [
-        { media: '(prefers-color-scheme: light)', color: '#8b5cf6' },
-        { media: '(prefers-color-scheme: dark)', color: '#a855f7' }
+        { media: '(prefers-color-scheme: light)', color: '#ffffff' },
+        { media: '(prefers-color-scheme: dark)', color: '#020617' }
     ]
 };
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://xenkit.com'),
+    metadataBase: new URL('https://xenkit.my.id'),
     title: {
         default: 'Xenkit - Developer Tools for the Web',
         template: '%s | Xenkit'
     },
     description:
         'Xenkit is a modern toolkit for developers offering a wide range of utilities such as encoders, decoders, generators, and formatters — all in one place to enhance your productivity.',
+    icons: {
+        icon: [{ url: '/favicon.ico', sizes: 'any' }]
+    },
     keywords: [
         'developer tools',
         'online dev tools',
@@ -77,12 +81,12 @@ export const metadata: Metadata = {
     },
     manifest: '/site.webmanifest',
     alternates: {
-        canonical: 'https://xenkit.com'
+        canonical: 'https://xenkit.my.id'
     },
     openGraph: {
         type: 'website',
         locale: 'en_US',
-        url: 'https://xenkit.com',
+        url: 'https://xenkit.my.id',
         siteName: 'Xenkit',
         title: 'Xenkit - Developer Tools for the Web',
         description: 'Your ultimate toolkit with all the essential utilities for development, security and productivity in one place.',
@@ -112,11 +116,7 @@ export const metadata: Metadata = {
     }
 };
 
-export default function RootLayout({
-    children
-}: Readonly<{
-    children: ReactNode;
-}>) {
+export default function MainLayout({ children }: Readonly<{ children: ReactNode }>) {
     const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'WebSite',
@@ -159,36 +159,31 @@ export default function RootLayout({
     };
 
     return (
-        <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+        <html lang="en" className="scroll-smooth">
             <head>
-                <meta charSet="UTF-8" />
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-                <link rel="dns-prefetch" href="//fonts.googleapis.com" />
-                <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-                <link rel="icon" href="/favicon.ico" sizes="any" />
-                <link rel="icon" href="/favicon.svg" type="image/svgxml" />
-                <link rel="apple-touch-icon" href="/favicon-180.png" />
-                <link rel="shortcut icon" href="/favicon.ico" />
-                <meta name="google-site-verification" content="your-google-verification-code-here" />
-
-                {/* JSON-LD structured data */}
-                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+                <Script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
             </head>
             <body className={`${figtree.variable} antialiased`}>
-                {/* Google Analytics */}
-                <Script src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" strategy="afterInteractive" />
+                <Script src="https://www.googletagmanager.com/gtag/js?id=G-KQGY9YHHQW" strategy="afterInteractive" />
                 <Script id="google-analytics" strategy="afterInteractive">
                     {`
                         window.dataLayer = window.dataLayer || [];
                         function gtag(){dataLayer.push(arguments);}
                         gtag('js', new Date());
-                        gtag('config', 'G-XXXXXXXXXX');
+                        gtag('config', 'G-KQGY9YHHQW');
                     `}
                 </Script>
-
-                <ThemeProvider>
-                    <AppLayout>{children}</AppLayout>
+                <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+                    <div className="flex min-h-screen">
+                        <Sidebar />
+                        <div className="flex flex-1 flex-col overflow-hidden">
+                            <Header />
+                            <main className="flex-1 overflow-y-auto">
+                                <div className="flex flex-col gap-4">{children}</div>
+                            </main>
+                            <Footer />
+                        </div>
+                    </div>
                 </ThemeProvider>
             </body>
         </html>
