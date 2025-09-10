@@ -25,7 +25,7 @@ export function NavLink({ item, onClick }: { item: Navigation; onClick?: () => v
     const isActive = !item.isExternal && pathname === item.href;
 
     return (
-        <Button variant={isActive ? 'secondary' : 'ghost'} className="w-full" asChild>
+        <Button variant={isActive ? 'secondary' : 'ghost'} className="sm:w-full" asChild>
             {item.isExternal ? (
                 <a href={item.href} target="_blank" rel="noopener noreferrer" onClick={onClick}>
                     {item.icon && <item.icon />}
