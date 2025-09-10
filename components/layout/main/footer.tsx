@@ -7,7 +7,7 @@ export function Footer() {
     return (
         <footer className="relative bg-gradient-to-br from-muted/10 via-background to-muted/10 border-t border-border/50">
             <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
                     <div className="lg:col-span-1">
                         <div className="mb-6">
                             <div className="text-2xl font-bold mb-4 text-primary">Xenkit</div>
