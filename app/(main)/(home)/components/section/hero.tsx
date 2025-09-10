@@ -9,7 +9,7 @@ import { AnimatedItem } from '../hero/animated-item';
 
 export function Hero() {
     const badge = (
-        <Badge variant="outline" className="gap-3 py-3 px-4 text-primary text-2xl">
+        <Badge variant="outline" className="gap-3 py-3 px-4 text-primary text-lg">
             <Wrench className="size-5" />
             <span>25+ Developer Tools Available</span>
         </Badge>
