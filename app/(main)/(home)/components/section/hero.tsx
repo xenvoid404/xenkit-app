@@ -51,9 +51,8 @@ export function Hero() {
         </Button>
     );
 
-    // Pass the static content to the client components for animation
     return (
-        <section className="relative flex min-h-dvh items-center justify-center bg-gradient-to-br from-background via-background to-muted/20">
+        <section className="relative flex items-center justify-center bg-gradient-to-br from-background via-background to-muted/20">
             <div className="relative z-10 mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
                 <HeroWrapper>
                     <AnimatedItem>{badge}</AnimatedItem>
