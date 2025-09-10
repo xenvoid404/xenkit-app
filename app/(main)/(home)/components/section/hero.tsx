@@ -2,7 +2,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Wrench, BadgeCheck, Clock, Zap, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { HeroWrapper } from '../wrapper/hero-wrapper';
+import { HeroWrapper, HeroSubWrapper } from '../wrapper/hero-wrapper';
 import { AnimatedHeader } from '../hero/animated-header';
 import { AnimatedFeatures } from '../hero/animated-features';
 import { AnimatedItem } from '../hero/animated-item';
@@ -52,15 +52,17 @@ export function Hero() {
     );
 
     return (
-        <section className="relative flex items-center justify-center bg-gradient-to-br from-background via-background to-muted/20">
-            <div className="relative z-10 mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
-                <HeroWrapper>
-                    <AnimatedItem>{badge}</AnimatedItem>
-                    <AnimatedHeader heading={heading} paragraph={paragraph} />
-                    <AnimatedFeatures features={features} />
-                    <AnimatedItem>{cta}</AnimatedItem>
-                </HeroWrapper>
-            </div>
-        </section>
+        <HeroWrapper>
+            <section className="relative flex items-center justify-center bg-gradient-to-br from-background via-background to-muted/20">
+                <div className="relative z-10 mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+                    <HeroSubWrapper>
+                        <AnimatedItem>{badge}</AnimatedItem>
+                        <AnimatedHeader heading={heading} paragraph={paragraph} />
+                        <AnimatedFeatures features={features} />
+                        <AnimatedItem>{cta}</AnimatedItem>
+                    </HeroSubWrapper>
+                </div>
+            </section>
+        </HeroWrapper>
     );
 }
