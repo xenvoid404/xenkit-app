@@ -4,6 +4,7 @@ import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { useSidebarStore } from '@/lib/store/sidebar-store';
 import { m, LazyMotion, domAnimation, type Variants } from 'framer-motion';
+import { type LucideIcon, Github } from 'lucide-react';
 
 interface Navigation {
     title: string;
