@@ -1,6 +1,6 @@
 import { type Variants } from 'framer-motion';
 
-export const containerVariants = {
+export const containerVariants: Variants = {
     hidden: {},
     visible: {
         transition: {

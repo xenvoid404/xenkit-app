@@ -1,4 +1,4 @@
-import { type LucideIcon } from 'lucide-react';
+import { type LucideIcon, LockKeyhole } from 'lucide-react';
 
 interface Tool {
     id: number;
@@ -17,7 +17,7 @@ export const tools: Tool[] = [
         slug: 'password-generator',
         description: 'Generate secure passwords with custom options for enhanced security',
         categories: ['Generators', 'Security', 'Utilities'],
-        icon: Lock,
+        icon: LockKeyhole,
         route: '/tools/password-generator'
     }
 ];
