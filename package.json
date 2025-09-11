@@ -9,12 +9,14 @@
         "lint": "next lint"
     },
     "dependencies": {
+        "@prisma/client": "^6.16.0",
         "@radix-ui/react-slot": "^1.2.3",
         "class-variance-authority": "^0.7.1",
         "clsx": "^2.1.1",
         "crypto-js": "^4.2.0",
         "framer-motion": "^12.23.12",
         "generate-password": "^1.7.1",
+        "install": "^0.13.0",
         "js-base64": "^3.7.8",
         "jsonwebtoken": "^9.0.2",
         "lucide-react": "^0.543.0",

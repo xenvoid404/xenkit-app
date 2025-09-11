@@ -47,7 +47,10 @@ jobs:
                   script: |
                       set -e
                       cd ${{ secrets.VPS_PROJECT_PATH }}
-                      echo "APP_ENV=production" > .env
+                      cat <<'EOF' >> .env
+                      APP_ENV="production"
+                      APP_DATABASE_URL="mysql://yun:(nD18EYG)dPsJ-VN@localhost:3306/wangshu"
+                      EOF
                       docker compose pull
                       docker compose up -d --remove-orphans
                       echo "Pruning old docker images..."
