@@ -1,5 +1,6 @@
 import { ToolsWrapper, ToolsSubWrapper } from '@/app/(main)/(home)/components/wrapper/tools-wrapper';
 import { AnimatedHeader } from '@/app/(main)/(home)/components/tools/animated-header';
+import { AnimatedItem } from '@/app/(main)/(home)/components/tools/animated-item';
 import { SearchInput } from '@/app/(main)/(home)/components/tools/search-input';
 
 export function ToolsSection() {
@@ -22,7 +23,9 @@ export function ToolsSection() {
                     <ToolsSubWrapper>
                         <AnimatedHeader heading={heading} paragraph={paragraph} />
                         <div className="flex flex-col md:flex-row gap-4">
-                            <SearchInput />
+                            <AnimatedItem>
+                                <SearchInput />
+                            </AnimatedItem>
                         </div>
                     </ToolsSubWrapper>
                 </div>
