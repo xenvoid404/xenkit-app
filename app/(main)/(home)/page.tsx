@@ -1,5 +1,5 @@
 import { Hero } from '@/app/(main)/(home)/components/section/hero';
-import { FeaturedTools } from '@/components/sections/featured-tools';
+import { FeaturedTools } from '@/app/(main)/(home)/components/section/featured-tools';
 
 export default function Page() {
     return (
