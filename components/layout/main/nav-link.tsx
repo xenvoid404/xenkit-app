@@ -15,7 +15,7 @@ interface Navigation {
 
 const navigations: Navigation[] = [
     { title: 'Home', href: '/', isExternal: false },
-    { title: 'Tools', href: '/tools', isExternal: false },
+    { title: 'Blog', href: '/blog', isExternal: false },
     { title: 'About', href: '/about', isExternal: false },
     { title: 'Github', href: 'https://github.com/xenvoid404', isExternal: true, icon: Github }
 ];

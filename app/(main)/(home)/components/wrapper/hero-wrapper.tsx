@@ -1,15 +1,6 @@
 'use client';
-import { m, LazyMotion, domAnimation, type Variants } from 'framer-motion';
-
-const containerVariants: Variants = {
-    hidden: {},
-    visible: {
-        transition: {
-            staggerChildren: 0.2,
-            delayChildren: 0.1
-        }
-    }
-};
+import { m, LazyMotion, domAnimation } from 'framer-motion';
+import { containerVariants } from '@/components/animation/container-variants';
 
 export function HeroWrapper({ children }: { children: React.ReactNode }) {
     return <LazyMotion features={domAnimation}>{children}</LazyMotion>;

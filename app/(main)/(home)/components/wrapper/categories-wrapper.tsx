@@ -1,12 +1,13 @@
 'use client';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
 import { containerVariants } from '@/components/animation/container-variants';
+import { type ReactNode } from 'react';
 
-export function FeaturedToolsWrapper({ children }: { children: React.ReactNode }) {
+export function CategoriesWrapper({ children }: { children: ReactNode }) {
     return <LazyMotion features={domAnimation}>{children}</LazyMotion>;
 }
 
-export function FeaturedToolsSubWrapper({ children }: { children: React.ReactNode }) {
+export function CategoriesSubWrapper({ children }: { children: ReactNode }) {
     return (
         <m.div
             className="flex flex-col items-center gap-y-8 text-center"
