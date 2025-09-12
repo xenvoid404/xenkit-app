@@ -18,7 +18,7 @@ export function SearchInput() {
                 value={search}
                 placeholder="Search tools... (Ctrl + K)"
                 onChange={e => setSearch(e.target.value)}
-                className="w-full pl-12 pr-4 py-4"
+                className="w-full pl-12 pr-4 py-4 h-16"
                 aria-label="Search tools"
             />
         </div>
