@@ -3,6 +3,7 @@ import { AnimatedHeader } from '@/components/animation/animated-header';
 import { AnimatedItem } from '@/components/animation/animated-item';
 import { SearchInput } from '@/app/(main)/(home)/components/tools/search-input';
 import { FilterToggle } from '@/app/(main)/(home)/components/tools/filter-toggle';
+import { ViewModeToggle } from '@/app/(main)/(home)/components/tools/view-mode-toggle';
 
 export function ToolsSection() {
     const heading = (
@@ -25,6 +26,7 @@ export function ToolsSection() {
                         <AnimatedHeader heading={heading} paragraph={paragraph} />
                         <div className="flex flex-col md:flex-row gap-4">
                             <AnimatedItem className="space-y-6">
+                                <ViewModeToggle />
                                 <SearchInput />
                                 <FilterToggle />
                             </AnimatedItem>
