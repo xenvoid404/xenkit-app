@@ -15,10 +15,8 @@ export function CategoryFilter() {
                     <Button
                         key={category}
                         variant={selectedCategory === category ? 'default' : 'outline'}
-                        size="sm"
                         onClick={() => setSelectedCategory(category)}
-                        className={`rounded-full transition-all duration-300 whitespace-nowrap hover:scale-105 animate-fade-in-up`}
-                        style={{ animationDelay: `${index * 30}ms` }}
+                        className="rounded-full"
                     >
                         {category === 'all' ? 'All Categories' : category}
                     </Button>

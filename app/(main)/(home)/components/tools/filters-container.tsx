@@ -2,7 +2,7 @@
 import { useToolsStore } from '@/app/(main)/(home)/lib/store/tools-store';
 import { CategoryFilter } from './category-filter';
 import { SortSelect } from './sort-select';
-import { m, AnimatePresence } from 'framer-motion';
+import { m } from 'framer-motion';
 import { slideUpVariants, slideDownVariants } from '@/components/motion/variants';
 import { useMobile } from '@/hooks/use-mobile';
 
@@ -17,13 +17,10 @@ export function FiltersContainer() {
     }
 
     return (
-        <AnimatePresence>
+        <>
             {isVisible && (
                 <m.div
                     variants={isMobile ? slideDownVariants : slideUpVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="hidden"
                     className={`overflow-x-auto ${isMobile ? 'md:hidden' : 'hidden md:block'}`}
                 >
                     <div className="flex flex-col md:flex-row gap-6 min-w-0">
@@ -32,6 +29,6 @@ export function FiltersContainer() {
                     </div>
                 </m.div>
             )}
-        </AnimatePresence>
+        </>
     );
 }
