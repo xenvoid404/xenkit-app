@@ -7,7 +7,7 @@ import { ToolGrid } from '@/app/(main)/(home)/components/tools/tool-grid';
 
 export function ToolsSection() {
     return (
-        <AnimatedContainer>
+        <LazyContainer>
             <section id="tools" className="flex items-center justify-center bg-gradient-to-br from-background via-background to-muted/20">
                 <div className="mx-auto max-w-8xl px-4 py-20 sm:px-6 lg:px-8">
                     <AnimatedStaggerContainer>
@@ -42,6 +42,6 @@ export function ToolsSection() {
                     </AnimatedStaggerContainer>
                 </div>
             </section>
-        </AnimatedContainer>
+        </LazyContainer>
     );
 }
