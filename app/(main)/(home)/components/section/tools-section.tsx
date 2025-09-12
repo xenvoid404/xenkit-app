@@ -24,7 +24,7 @@ export function ToolsSection() {
                     <AnimatedSubContainer>
                         <AnimatedHeader heading={heading} paragraph={paragraph} />
                         <div className="flex flex-col md:flex-row gap-4">
-                            <AnimatedItem>
+                            <AnimatedItem className="space-y-6">
                                 <SearchInput />
                                 <FilterToggle />
                             </AnimatedItem>
