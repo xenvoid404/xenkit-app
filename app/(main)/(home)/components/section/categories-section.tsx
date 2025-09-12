@@ -1,5 +1,6 @@
 import { AnimatedContainer, AnimatedSubContainer } from '@/components/animation/animated-container';
 import { AnimatedHeader } from '@/components/animation/animated-header';
+import { CategoryList } from '../categories/category-list';
 
 export function CategoriesSection() {
     const heading = (
@@ -20,6 +21,7 @@ export function CategoriesSection() {
                 <div className="max-w-7xl mx-auto">
                     <AnimatedSubContainer>
                         <AnimatedHeader heading={heading} paragraph={paragraph} />
+                        <CategoryList />
                     </AnimatedSubContainer>
                 </div>
             </section>

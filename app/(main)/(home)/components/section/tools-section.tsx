@@ -22,7 +22,7 @@ export function ToolsSection() {
 
     return (
         <AnimatedContainer>
-            <section className="py-24 px-6 bg-gradient-to-br from-background via-muted/20 to-background">
+            <section id="tools" className="py-24 px-6 bg-gradient-to-br from-background via-muted/20 to-background">
                 <div className="max-w-8xl w-full mx-auto">
                     <AnimatedSubContainer>
                         <AnimatedHeader heading={heading} paragraph={paragraph} />
