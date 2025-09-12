@@ -19,7 +19,7 @@ export function CategoryList() {
     return (
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-12">
             {categories.map((category, index) => (
-                <AnimatedItem>
+                <AnimatedItem key={index}>
                     <Button
                         onClick={() => handleClick(category)}
                         className="w-full h-full p-8 text-center bg-background/50 border border-border/50 rounded-xl transition-all duration-300 hover:bg-primary/10 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 hover:-translate-y-1"
