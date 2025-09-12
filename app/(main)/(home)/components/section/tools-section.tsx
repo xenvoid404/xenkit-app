@@ -31,9 +31,7 @@ export function ToolsSection() {
                                     <FilterToggle />
                                 </AnimatedSlideUp>
                             </div>
-                            <AnimatedSlideUp>
-                                <FiltersContainer />
-                            </AnimatedSlideUp>
+                            <FiltersContainer />
                         </div>
                         <ResultsSummary />
                         <AnimatedSlideUp>
