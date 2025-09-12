@@ -15,8 +15,6 @@ export function HeroSection() {
                                 <Wrench className="size-5" />
                                 <span>25+ Developer Tools Available</span>
                             </Badge>
-                        </AnimatedSlideUp>
-                        <AnimatedSlideUp>
                             <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
                                 <span className="block text-primary">Powerful Tools</span>
                                 <span className="block text-foreground">For Modern Developers</span>
@@ -25,8 +23,6 @@ export function HeroSection() {
                                 Your ultimate toolkit with all the essential utilities for development, security and productivity in one place.
                                 <span className="mt-2 block font-medium text-foreground sm:mt-0 sm:inline"> Free, fast, and secure.</span>
                             </p>
-                        </AnimatedSlideUp>
-                        <AnimatedSlideUp>
                             <Button asChild size="lg" className="group">
                                 <Link href="#featured-tools">
                                     Explore Tools
