@@ -2,11 +2,11 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Wrench, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
-import { HeroWrapper, HeroSubWrapper } from '../wrapper/hero-wrapper';
-import { AnimatedHeader } from '../hero/animated-header';
-import { AnimatedItem } from '../hero/animated-item';
+import { AnimatedContainer, AnimatedSubContainer } from '@/components/animation/animated-container';
+import { AnimatedHeader } from '@/components/animation/animated-header';
+import { AnimatedItem } from '@/components/animation/animated-item.tsx';
 
-export function Hero() {
+export function HeroSection() {
     const badge = (
         <Badge variant="outline" className="gap-3 py-3 px-4 text-primary text-xs">
             <Wrench className="size-5" />
@@ -38,16 +38,16 @@ export function Hero() {
     );
 
     return (
-        <HeroWrapper>
+        <AnimatedContainer>
             <section className="relative min-h-svh flex items-center justify-center bg-gradient-to-br from-background via-background to-muted/20">
                 <div className="relative z-10 mx-auto max-w-8xl px-4 py-20 sm:px-6 lg:px-8">
-                    <HeroSubWrapper>
+                    <AnimatedSubContainer>
                         <AnimatedItem>{badge}</AnimatedItem>
                         <AnimatedHeader heading={heading} paragraph={paragraph} />
                         <AnimatedItem>{cta}</AnimatedItem>
-                    </HeroSubWrapper>
+                    </AnimatedSubContainer>
                 </div>
             </section>
-        </HeroWrapper>
+        </AnimatedContainer>
     );
 }

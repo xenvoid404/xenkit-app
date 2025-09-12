@@ -1,7 +1,7 @@
 'use client';
 import { m } from 'framer-motion';
-import { parentVariants } from '@/components/animation/parent-variants';
-import { itemVariants } from '@/components/animation/item-variants';
+import { parentVariants } from '@/components/framer-variants/parent-variants';
+import { itemVariants } from '@/components/framer-variants/item-variants';
 import { type ReactNode } from 'react';
 
 export function AnimatedHeader({ heading, paragraph }: { heading: ReactNode; paragraph: ReactNode }) {

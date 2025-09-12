@@ -1,6 +1,6 @@
-import { ToolsWrapper, ToolsSubWrapper } from '@/app/(main)/(home)/components/wrapper/tools-wrapper';
-import { AnimatedHeader } from '@/app/(main)/(home)/components/tools/animated-header';
-import { AnimatedItem } from '@/app/(main)/(home)/components/tools/animated-item';
+import { AnimatedContainer, AnimatedSubContainer } from '@/components/animation/animated-container';
+import { AnimatedHeader } from '@/components/animation/animated-header';
+import { AnimatedItem } from '@/components/animation/animated-item.tsx';
 import { SearchInput } from '@/app/(main)/(home)/components/tools/search-input';
 
 export function ToolsSection() {
@@ -17,19 +17,19 @@ export function ToolsSection() {
     );
 
     return (
-        <ToolsWrapper>
+        <AnimatedContainer>
             <section className="py-24 px-6 bg-gradient-to-br from-background via-muted/20 to-background">
                 <div className="max-w-8xl mx-auto">
-                    <ToolsSubWrapper>
+                    <AnimatedSubContainer>
                         <AnimatedHeader heading={heading} paragraph={paragraph} />
                         <div className="flex flex-col md:flex-row gap-4">
                             <AnimatedItem>
                                 <SearchInput />
                             </AnimatedItem>
                         </div>
-                    </ToolsSubWrapper>
+                    </AnimatedSubContainer>
                 </div>
             </section>
-        </ToolsWrapper>
+        </AnimatedContainer>
     );
 }

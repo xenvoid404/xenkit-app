@@ -1,5 +1,5 @@
-import { CategoriesWrapper, CategoriesSubWrapper } from '@/app/(main)/(home)/components/wrapper/categories-wrapper';
-import { AnimatedHeader } from '@/app/(main)/(home)/components/categories/animated-header';
+import { AnimatedContainer, AnimatedSubContainer } from '@/components/animation/animated-container';
+import { AnimatedHeader } from '@/components/animation/animated-header';
 
 export function CategoriesSection() {
     const heading = (
@@ -15,14 +15,14 @@ export function CategoriesSection() {
     );
 
     return (
-        <CategoriesWrapper>
+        <AnimatedContainer>
             <section className="py-24 px-6 bg-gradient-to-br from-background via-muted/20 to-background">
                 <div className="max-w-7xl mx-auto">
-                    <CategoriesSubWrapper>
+                    <AnimatedSubContainer>
                         <AnimatedHeader heading={heading} paragraph={paragraph} />
-                    </CategoriesSubWrapper>
+                    </AnimatedSubContainer>
                 </div>
             </section>
-        </CategoriesWrapper>
+        </AnimatedContainer>
     );
 }

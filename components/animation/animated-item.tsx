@@ -1,6 +1,6 @@
 'use client';
 import { m } from 'framer-motion';
-import { itemVariants } from '@/components/animation/item-variants';
+import { itemVariants } from '@/components/framer-variants/item-variants';
 import { type ReactNode } from 'react';
 
 export function AnimatedItem({ children, className }: { children: ReactNode; className?: string }) {
