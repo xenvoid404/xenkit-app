@@ -24,13 +24,19 @@ export function ToolsSection() {
                 <div className="max-w-8xl w-full mx-auto">
                     <AnimatedSubContainer>
                         <AnimatedHeader heading={heading} paragraph={paragraph} />
-                        <div className="flex flex-col md:flex-row gap-4">
-                            <AnimatedItem className="space-y-6">
-                                <ViewModeToggle />
+                        <div className="flex flex-col gap-6">
+                            <div className="flex items-start justify-between">
+                                <AnimatedItem className="hidden md:flex items-center gap-1 p-1 bg-muted/20 border border-border/50 rounded-lg flex-shrink-0 ml-6">
+                                    <ViewModeToggle />
+                                </AnimatedItem>
+                            </div>
+                        </div>
+                        <AnimatedItem className="space-y-6">
+                            <div className="flex flex-col md:flex-row gap-4">
                                 <SearchInput />
                                 <FilterToggle />
-                            </AnimatedItem>
-                        </div>
+                            </div>
+                        </AnimatedItem>
                     </AnimatedSubContainer>
                 </div>
             </section>
