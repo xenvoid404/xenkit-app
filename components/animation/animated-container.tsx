@@ -1,3 +1,4 @@
+'use client';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
 import { type ReactNode } from 'react';
 import { containerVariants } from '@/components/framer-variants/container-variants';
