@@ -10,7 +10,7 @@ export function LazyContainer({ children, className, ...props }: { children: Rea
     );
 }
 
-export function AnimatedSlideUp({ children, variants, className, ...props }: { children: ReactNode; className?: string }) {
+export function AnimatedSlideUp({ children, className, ...props }: { children: ReactNode; className?: string }) {
     return (
         <m.div variants={slideUpVariants} className={className} {...props}>
             {children}
@@ -18,7 +18,7 @@ export function AnimatedSlideUp({ children, variants, className, ...props }: { c
     );
 }
 
-export function AnimatedSlideDown({ children, variants, className, ...props }: { children: ReactNode; className?: string }) {
+export function AnimatedSlideDown({ children, className, ...props }: { children: ReactNode; className?: string }) {
     return (
         <m.div variants={slideDownVariants} className={className} {...props}>
             {children}
