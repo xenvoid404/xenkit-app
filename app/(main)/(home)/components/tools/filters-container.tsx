@@ -1,14 +1,16 @@
 'use client';
-import { useToolsStore } from '@/app/(main)/(home)/lib/store/tools-store';
-import { CategoryFilter } from './category-filter';
+import { useToolsStore, useCategories } from '@/app/(main)/(home)/lib/store/tools-store';
+import { Button } from '@/components/ui/button';
+import { Label } from '@/components/ui/label';
 import { SortSelect } from './sort-select';
-import { m, AnimatePresence } from 'framer-motion';
-import { slideDownVariants, containerVariants } from '@/components/motion/variants';
+import { m } from 'framer-motion';
 import { useMobile } from '@/hooks/use-mobile';
-import { AnimatedSlideUp } from '@/components/motion/animations';
+import { AnimatedSlideUp, AnimatedSlideDown } from '@/components/motion/animations';
 
 export function FiltersContainer() {
     const showFilters = useToolsStore(state => state.showFilters);
+    const { selectedCategory, setSelectedCategory } = useToolsStore();
+    const categories = useCategories();
     const isMobile = useMobile();
 
     const isVisible = !isMobile || showFilters;
@@ -18,25 +20,53 @@ export function FiltersContainer() {
     }
 
     return (
-        <AnimatePresence>
+        <>
             {isVisible && (
-                <m.div
-                    variants={isMobile ? slideDownVariants : containerVariants}
-                    initial="hidden"
-                    animate="visible"
-                    exit="hidden"
-                    className={`overflow-x-auto ${isMobile ? 'md:hidden' : 'hidden md:block'}`}
-                >
+                <m.div className={`overflow-x-auto ${isMobile ? 'md:hidden' : 'hidden md:block'}`}>
                     <div className="flex flex-col md:flex-row gap-6 min-w-0">
                         {isMobile ? (
                             <>
-                                <CategoryFilter />
-                                <SortSelect />
+                                <AnimatedSlideDown>
+                                    <div className="flex-1 min-w-0">
+                                        <Label className="mb-3">Category:</Label>
+                                        <div className="flex flex-wrap gap-2">
+                                            {categories.map((category, index) => (
+                                                <AnimatedSlideDown key={category}>
+                                                    <Button
+                                                        variant={selectedCategory === category ? 'default' : 'outline'}
+                                                        onClick={() => setSelectedCategory(category)}
+                                                        className="rounded-full"
+                                                    >
+                                                        {category === 'all' ? 'All Categories' : category}
+                                                    </Button>
+                                                </AnimatedSlideDown>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </AnimatedSlideDown>
+                                <AnimatedSlideDown>
+                                    <SortSelect />
+                                </AnimatedSlideDown>
                             </>
                         ) : (
                             <>
                                 <AnimatedSlideUp>
-                                    <CategoryFilter />
+                                    <div className="flex-1 min-w-0">
+                                        <Label className="mb-3">Category:</Label>
+                                        <div className="flex flex-wrap gap-2">
+                                            {categories.map((category, index) => (
+                                                <AnimatedSlideUp key={category}>
+                                                    <Button
+                                                        variant={selectedCategory === category ? 'default' : 'outline'}
+                                                        onClick={() => setSelectedCategory(category)}
+                                                        className="rounded-full"
+                                                    >
+                                                        {category === 'all' ? 'All Categories' : category}
+                                                    </Button>
+                                                </AnimatedSlideUp>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </AnimatedSlideUp>
                                 <AnimatedSlideUp>
                                     <SortSelect />
@@ -46,6 +76,6 @@ export function FiltersContainer() {
                     </div>
                 </m.div>
             )}
-        </AnimatePresence>
+        </>
     );
 }
