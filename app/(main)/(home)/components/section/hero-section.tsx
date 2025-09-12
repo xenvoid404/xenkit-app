@@ -4,7 +4,7 @@ import { Wrench, ArrowRight } from 'lucide-react';
 import Link from 'next/link';
 import { AnimatedContainer, AnimatedSubContainer } from '@/components/animation/animated-container';
 import { AnimatedHeader } from '@/components/animation/animated-header';
-import { AnimatedItem } from '@/components/animation/animated-item.tsx';
+import { AnimatedItem } from '@/components/animation/animated-item';
 
 export function HeroSection() {
     const badge = (
