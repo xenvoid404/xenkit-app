@@ -9,7 +9,7 @@ export function SortSelect() {
 
     return (
         <div className="md:w-52 flex-shrink-0">
-            <Label className="mb-3 block">Sort by:</Label>
+            <Label className="mb-3">Sort by:</Label>
             <Select value={sortMode} onValueChange={value => setSortMode(value as SortMode)}>
                 <SelectTrigger>
                     <SelectValue placeholder="Filter Option" />
