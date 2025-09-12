@@ -1,6 +1,6 @@
 import { type LucideIcon, LockKeyhole, FileJson } from 'lucide-react';
 
-interface Tool {
+export interface Tool {
     id: number;
     name: string;
     slug: string;
