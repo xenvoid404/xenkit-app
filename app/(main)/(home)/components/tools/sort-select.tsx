@@ -10,11 +10,7 @@ export function SortSelect() {
     return (
         <div className="md:w-52 flex-shrink-0">
             <Label>Sort by:</Label>
-            <Select
-                value={sortMode}
-                onValueChange={value => setSortMode(value as SortMode)}
-                className="w-full px-4 py-2.5 bg-background/70 backdrop-blur-sm border border-border/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 hover:border-border/70 transition-all text-sm font-medium"
-            >
+            <Select value={sortMode} onValueChange={value => setSortMode(value as SortMode)}>
                 <SelectTrigger>
                     <SelectValue placeholder="Filter Option" />
                 </SelectTrigger>
