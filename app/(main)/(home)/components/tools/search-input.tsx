@@ -1,10 +1,10 @@
 'use client';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { useState } from 'react';
+import { useToolsStore } from '@/app/(main)/(home)/lib/store/tools-store';
 
 export function SearchInput() {
-    const [search, setSearch] = useState<string>('');
+    const { searchTerm, setSearchTerm } = useToolsStore();
 
     return (
         <div className="relative flex-1 max-w-2xl">
@@ -15,9 +15,9 @@ export function SearchInput() {
                 id="search"
                 name="search"
                 type="text"
-                value={search}
+                value={searchTerm}
                 placeholder="Search tools... (Ctrl + K)"
-                onChange={e => setSearch(e.target.value)}
+                onChange={e => setSearchTerm(e.target.value)}
                 className="w-full pl-12 pr-4 py-4 h-14 rounded-xl"
                 aria-label="Search tools"
             />
