@@ -2,8 +2,7 @@
 import { useToolsStore } from '@/app/(main)/(home)/lib/store/tools-store';
 import { CategoryFilter } from './category-filter';
 import { SortSelect } from './sort-select';
-import { m } from 'framer-motion';
-import { slideUpVariants, slideDownVariants } from '@/components/motion/variants';
+import { AnimatedSlideUp, AnimatedSlideDown } from '@/components/motion/animations';
 import { useMobile } from '@/hooks/use-mobile';
 
 export function FiltersContainer() {
@@ -19,15 +18,29 @@ export function FiltersContainer() {
     return (
         <>
             {isVisible && (
-                <m.div
-                    variants={isMobile ? slideDownVariants : slideUpVariants}
-                    className={`overflow-x-auto ${isMobile ? 'md:hidden' : 'hidden md:block'}`}
-                >
+                <div className={`overflow-x-auto ${isMobile ? 'md:hidden' : 'hidden md:block'}`}>
                     <div className="flex flex-col md:flex-row gap-6 min-w-0">
-                        <CategoryFilter />
-                        <SortSelect />
+                        {isMobile ? (
+                            <>
+                                <AnimatedSlideDown>
+                                    <CategoryFilter />
+                                </AnimatedSlideDown>
+                                <AnimatedSlideDown>
+                                    <SortSelect />
+                                </AnimatedSlideDown>
+                            </>
+                        ) : (
+                            <>
+                                <AnimatedSlideUp>
+                                    <CategoryFilter />
+                                </AnimatedSlideUp>
+                                <AnimatedSlideUp>
+                                    <SortSelect />
+                                </AnimatedSlideUp>
+                            </>
+                        )}
                     </div>
-                </m.div>
+                </div>
             )}
         </>
     );
