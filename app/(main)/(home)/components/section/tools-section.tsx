@@ -1,6 +1,6 @@
 import { AnimatedContainer, AnimatedSubContainer } from '@/components/animation/animated-container';
 import { AnimatedHeader } from '@/components/animation/animated-header';
-import { AnimatedItem } from '@/components/animation/animated-item.tsx';
+import { AnimatedItem } from '@/components/animation/animated-item';
 import { SearchInput } from '@/app/(main)/(home)/components/tools/search-input';
 
 export function ToolsSection() {
