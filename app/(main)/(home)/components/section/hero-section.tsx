@@ -30,7 +30,7 @@ export function HeroSection() {
                         </AnimatedSlideUp>
                         <AnimatedSlideUp>
                             <Button asChild size="lg" className="group">
-                                <Link href="#featured-tools">
+                                <Link href="#tools">
                                     Explore Tools
                                     <ArrowRight className="ml-2 size-5 transition-transform duration-300 group-hover:translate-x-1" />
                                 </Link>
