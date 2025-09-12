@@ -1,18 +1,15 @@
 'use client';
-
 import { Button } from '@/components/ui/button';
 import { useToolsStore, useCategories } from '@/app/(main)/(home)/lib/store/tools-store';
+import { Label } from '@/components/ui/label';
 
 export function CategoryFilter() {
-    const {
-        selectedCategory,
-        setSelectedCategory
-    } = useToolsStore();
+    const { selectedCategory, setSelectedCategory } = useToolsStore();
     const categories = useCategories();
 
     return (
         <div className="flex-1 min-w-0">
-            <label className="block text-sm font-semibold mb-3 text-foreground">Category:</label>
+            <Label>Category:</Label>
             <div className="flex flex-wrap gap-2">
                 {categories.map((category, index) => (
                     <Button

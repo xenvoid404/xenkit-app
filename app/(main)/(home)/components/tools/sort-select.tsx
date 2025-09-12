@@ -1,7 +1,7 @@
 'use client';
-
 import { useToolsStore } from '@/app/(main)/(home)/lib/store/tools-store';
-
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
+import { Label } from '@/components/ui/label';
 type SortMode = 'name' | 'category';
 
 export function SortSelect() {
@@ -9,15 +9,20 @@ export function SortSelect() {
 
     return (
         <div className="md:w-52 flex-shrink-0">
-            <label className="block text-sm font-semibold mb-3 text-foreground">Sort by:</label>
-            <select
+            <Label>Sort by:</Label>
+            <Select
                 value={sortMode}
-                onChange={e => setSortMode(e.target.value as SortMode)}
+                onValueChange={value => setSortMode(value as SortMode)}
                 className="w-full px-4 py-2.5 bg-background/70 backdrop-blur-sm border border-border/50 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 hover:border-border/70 transition-all text-sm font-medium"
             >
-                <option value="name">Name A-Z</option>
-                <option value="category">Category</option>
-            </select>
+                <SelectTrigger>
+                    <SelectValue placeholder="Filter Option" />
+                </SelectTrigger>
+                <SelectContent>
+                    <SelectItem value="name">Name A-Z</SelectItem>
+                    <SelectItem value="category">Category</SelectItem>
+                </SelectContent>
+            </Select>
         </div>
     );
 }
