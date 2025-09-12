@@ -2,11 +2,12 @@ import { AnimatedContainer, AnimatedSubContainer } from '@/components/animation/
 import { AnimatedHeader } from '@/components/animation/animated-header';
 import { AnimatedItem } from '@/components/animation/animated-item';
 import { SearchInput } from '@/app/(main)/(home)/components/tools/search-input';
+import { FilterToggle } from '@/app/(main)/(home)/components/tools/filter-toggle';
 
 export function ToolsSection() {
     const heading = (
         <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
-            <span className="block text-primary">Featured Tools</span>
+            <span className="block text-primary">Tools</span>
         </h1>
     );
 
@@ -25,6 +26,7 @@ export function ToolsSection() {
                         <div className="flex flex-col md:flex-row gap-4">
                             <AnimatedItem>
                                 <SearchInput />
+                                <FilterToggle />
                             </AnimatedItem>
                         </div>
                     </AnimatedSubContainer>
