@@ -9,7 +9,7 @@ export function CategoryFilter() {
 
     return (
         <div className="flex-1 min-w-0">
-            <Label>Category:</Label>
+            <Label className="mb-3 block">Category:</Label>
             <div className="flex flex-wrap gap-2">
                 {categories.map((category, index) => (
                     <Button
