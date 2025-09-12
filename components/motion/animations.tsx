@@ -1,6 +1,6 @@
 'use client';
 import { m, LazyMotion, domAnimation } from 'framer-motion';
-import { containerVariants, slideUpVariants, slideDownVariants } from '@/components/motion/variants';
+import { slideUpVariants, slideDownVariants } from '@/components/motion/variants';
 
 export function LazyContainer({ children, className, ...props }: { children: ReactNode; className?: string }) {
     return (
