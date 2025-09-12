@@ -26,6 +26,21 @@ export function AnimatedStaggerContainer({ children, className, ...props }: { ch
     );
 }
 
+export function AnimatedStaggerSection({ children, className, ...props }: { children: ReactNode; className?: string }) {
+    return (
+        <m.section
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+            className={className}
+            {...props}
+        >
+            {children}
+        </m.section>
+    );
+}
+
 export function AnimatedSlideUp({ children, className, ...props }: { children: ReactNode; className?: string }) {
     return (
         <m.div variants={slideUpVariants} className={className} {...props}>

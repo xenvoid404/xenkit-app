@@ -3,7 +3,7 @@ import { ToolsSection } from '@/app/(main)/(home)/components/section/tools-secti
 
 export default function Page() {
     return (
-        <div id="main-content" className="flex flex-col">
+        <div id="main-content" className="flex flex-col gap-4">
             <HeroSection />
             <ToolsSection />
         </div>
