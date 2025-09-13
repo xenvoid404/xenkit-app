@@ -11,22 +11,15 @@ export function LazyContainer({ children }: { children: ReactNode }) {
     );
 }
 
-export function AnimatedStaggerDiv({ children, className, ...props }: { children: ReactNode; className?: string; [key: string]: any }) {
+export function AnimatedStaggerDiv({ children, className }: { children: ReactNode; className?: string }) {
     return (
-        <m.div
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className={className}
-            {...props}
-        >
+        <m.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} className={className}>
             {children}
         </m.div>
     );
 }
 
-export function AnimatedStaggerSection({ children, className, ...props }: { children: ReactNode; className?: string; [key: string]: any }) {
+export function AnimatedStaggerSection({ children, className }: { children: ReactNode; className?: string }) {
     return (
         <m.section
             variants={containerVariants}
@@ -41,33 +34,17 @@ export function AnimatedStaggerSection({ children, className, ...props }: { chil
     );
 }
 
-export function AnimatedSlideUp({ children, className, ...props }: { children: ReactNode; className?: string; [key: string]: any }) {
+export function AnimatedSlideInUp({ children, className }: { children: ReactNode; className?: string }) {
     return (
-        <m.div variants={slideUpVariants} className={className} {...props}>
+        <m.div variants={slideUpVariants} className={className}>
             {children}
         </m.div>
     );
 }
 
-export function AnimatedSlideInUp({ children, className, ...props }: { children: ReactNode; className?: string; [key: string]: any }) {
+export function AnimatedSlideInDown({ children, className }: { children: ReactNode; className?: string }) {
     return (
-        <m.div variants={slideUpVariants} className={className} {...props}>
-            {children}
-        </m.div>
-    );
-}
-
-export function AnimatedSlideDown({ children, className, ...props }: { children: ReactNode; className?: string; [key: string]: any }) {
-    return (
-        <m.div variants={slideDownVariants} className={className} {...props}>
-            {children}
-        </m.div>
-    );
-}
-
-export function AnimatedSlideInDown({ children, className, ...props }: { children: ReactNode; className?: string; [key: string]: any }) {
-    return (
-        <m.div variants={slideDownVariants} className={className} {...props}>
+        <m.div variants={slideDownVariants} className={className}>
             {children}
         </m.div>
     );
