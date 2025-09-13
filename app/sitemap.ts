@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import { tools } from '@/app/((main)/(home)/lib/tools-data';
+import { tools } from '@/app/(main)/(home)/lib/tools-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://xenkit.my.id';
