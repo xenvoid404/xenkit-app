@@ -3,6 +3,7 @@ import { type ReactNode } from 'react';
 import { Figtree } from 'next/font/google';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/provider/theme-provider';
+import { LazyContainer } from '@/components/motion/animations';
 import { Header } from '@/components/layout/main/header';
 import { Sidebar } from '@/components/layout/main/sidebar';
 import { Footer } from '@/components/layout/main/footer';
@@ -123,22 +124,22 @@ export default function MainLayout({ children }: Readonly<{ children: ReactNode 
         '@type': 'WebSite',
         name: 'Xenkit',
         description: 'Modern toolkit for developers with essential utilities for development, security and productivity.',
-        url: 'https://xenkit.com',
+        url: 'https://xenkit.my.id',
         potentialAction: {
             '@type': 'SearchAction',
             target: {
                 '@type': 'EntryPoint',
-                urlTemplate: 'https://xenkit.com/tools?search={search_term_string}'
+                urlTemplate: 'https://xenkit.my.id/tools?search={search_term_string}'
             },
             'query-input': 'required name=search_term_string'
         },
         publisher: {
             '@type': 'Organization',
             name: 'Xenkit',
-            url: 'https://xenkit.com',
+            url: 'https://xenkit.my.id',
             logo: {
                 '@type': 'ImageObject',
-                url: 'https://xenkit.com/logo.png'
+                url: 'https://xenkit.my.id/logo.png'
             },
             sameAs: ['https://github.com/xenvoid404']
         },
@@ -152,7 +153,7 @@ export default function MainLayout({ children }: Readonly<{ children: ReactNode 
                     '@type': 'SoftwareApplication',
                     name: 'Password Generator',
                     description: 'Generate secure, random passwords with customizable options',
-                    url: 'https://xenkit.com/tools/password-generator',
+                    url: 'https://xenkit.my.id/tools/password-generator',
                     applicationCategory: 'SecurityApplication'
                 }
             ]
@@ -172,18 +173,20 @@ export default function MainLayout({ children }: Readonly<{ children: ReactNode 
                         gtag('config', 'G-KQGY9YHHQW');
                     `}
                 </Script>
-                <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-                    <div className="flex min-h-svh">
-                        <Sidebar />
-                        <div className="flex flex-1 flex-col">
-                            <Header />
-                            <main className="flex-1 overflow-y-auto">
-                                <div className="flex flex-col gap-4">{children}</div>
-                            </main>
-                            <Footer />
+                <LazyContainer>
+                    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+                        <div className="flex min-h-svh">
+                            <Sidebar />
+                            <div className="flex flex-1 flex-col">
+                                <Header />
+                                <main className="flex-1">
+                                    <div className="flex flex-col gap-4">{children}</div>
+                                </main>
+                                <Footer />
+                            </div>
                         </div>
-                    </div>
-                </ThemeProvider>
+                    </ThemeProvider>
+                </LazyContainer>
             </body>
         </html>
     );

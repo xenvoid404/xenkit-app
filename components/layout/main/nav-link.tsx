@@ -16,9 +16,10 @@ interface Navigation {
 const navigations: Navigation[] = [
     { title: 'Home', href: '/', isExternal: false },
     { title: 'Blog', href: '/blog', isExternal: false },
-    { title: 'About', href: '/about', isExternal: false },
-    { title: 'Github', href: 'https://github.com/xenvoid404', isExternal: true, icon: Github }
+    { title: 'About', href: '/about', isExternal: false }
 ];
+
+const socials: Navigation[] = [{ title: 'Github', href: 'https://github.com/xenvoid404', isExternal: true, icon: Github }];
 
 export function NavLink({ item, onClick }: { item: Navigation; onClick?: () => void }) {
     const pathname = usePathname();
@@ -84,12 +85,32 @@ export function SidebarMenu() {
     );
 }
 
-export function FooterMenu() {
+export function FooterNavigationMenu() {
     return (
         <div className="lg:col-span-1">
             <h4 className="font-semibold mb-4 text-foreground">Navigation</h4>
             <ul className="space-y-3">
                 {navigations.map(item => (
+                    <li key={item.title}>
+                        <Link
+                            href={item.href}
+                            className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-105 inline-block"
+                        >
+                            {item.title}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
+}
+
+export function FooterSocialMenu() {
+    return (
+        <div className="lg:col-span-1">
+            <h4 className="font-semibold mb-4 text-foreground">Navigation</h4>
+            <ul className="space-y-3">
+                {socials.map(item => (
                     <li key={item.title}>
                         <Link
                             href={item.href}
