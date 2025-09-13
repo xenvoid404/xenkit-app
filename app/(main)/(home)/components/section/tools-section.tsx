@@ -14,12 +14,8 @@ export function ToolsSection() {
                     <div className="flex flex-col items-center gap-y-8 text-center">
                         <Heading />
                         <div className="flex flex-col md:flex-row gap-4">
-                            <AnimatedSlideUp>
-                                <SearchInput />
-                            </AnimatedSlideUp>
-                            <AnimatedSlideUp>
-                                <FilterToggle />
-                            </AnimatedSlideUp>
+                            <SearchInput />
+                            <FilterToggle />
                         </div>
                         <FiltersContainer />
                         <ResultsSummary />
