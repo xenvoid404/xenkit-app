@@ -3,6 +3,7 @@ import { type ReactNode } from 'react';
 import { Figtree } from 'next/font/google';
 import Script from 'next/script';
 import { ThemeProvider } from '@/components/provider/theme-provider';
+import { LazyContainer } from '@/components/motion/animations';
 import { Header } from '@/components/layout/main/header';
 import { Sidebar } from '@/components/layout/main/sidebar';
 import { Footer } from '@/components/layout/main/footer';
@@ -172,18 +173,20 @@ export default function MainLayout({ children }: Readonly<{ children: ReactNode 
                         gtag('config', 'G-KQGY9YHHQW');
                     `}
                 </Script>
-                <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-                    <div className="flex min-h-svh">
-                        <Sidebar />
-                        <div className="flex flex-1 flex-col">
-                            <Header />
-                            <main className="flex-1 overflow-y-auto">
-                                <div className="flex flex-col gap-4">{children}</div>
-                            </main>
-                            <Footer />
+                <LazyContainer>
+                    <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+                        <div className="flex min-h-svh">
+                            <Sidebar />
+                            <div className="flex flex-1 flex-col">
+                                <Header />
+                                <main className="flex-1">
+                                    <div className="flex flex-col gap-4">{children}</div>
+                                </main>
+                                <Footer />
+                            </div>
                         </div>
-                    </div>
-                </ThemeProvider>
+                    </ThemeProvider>
+                </LazyContainer>
             </body>
         </html>
     );

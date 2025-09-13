@@ -1,11 +1,11 @@
-import { HeroSection } from '@/app/(main)/(home)/components/section/hero-section';
-import { ToolsSection } from '@/app/(main)/(home)/components/section/tools-section';
+import { Hero } from '@/app/(main)/(home)/components/section/hero';
+import { Tools } from '@/app/(main)/(home)/components/section/tools';
 
 export default function Page() {
     return (
         <div id="main-content" className="flex flex-col">
-            <HeroSection />
-            <ToolsSection />
+            <Hero />
+            <Tools />
         </div>
     );
 }
