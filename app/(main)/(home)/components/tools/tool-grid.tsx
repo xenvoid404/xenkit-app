@@ -3,8 +3,7 @@ import { ToolCard } from '@/app/(main)/(home)/components/tools/tool-card';
 import { useFilteredTools, useToolsStore } from '@/app/(main)/(home)/lib/store/tools-store';
 import { FiSearch } from 'react-icons/fi';
 import { Button } from '@/components/ui/button';
-import { m } from 'framer-motion';
-import { itemVariants } from '@/lib/motion';
+import { AnimatedSlideUp } from '@/components/motion/animations';
 
 export function ToolGrid() {
     const filteredTools = useFilteredTools();
@@ -14,9 +13,9 @@ export function ToolGrid() {
         return (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
                 {filteredTools.map(tool => (
-                    <m.div key={tool.id} variants={itemVariants}>
+                    <AnimatedSlideUp key={tool.id}>
                         <ToolCard tool={tool} className="h-full" />
-                    </m.div>
+                    </AnimatedSlideUp>
                 ))}
             </div>
         );

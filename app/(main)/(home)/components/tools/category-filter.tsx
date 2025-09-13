@@ -2,28 +2,47 @@
 import { Button } from '@/components/ui/button';
 import { useToolsStore, useCategories } from '@/app/(main)/(home)/lib/store/tools-store';
 import { Label } from '@/components/ui/label';
-import { AnimatedSlideDown } from '@/components/motion/animations';
+import { AnimatedSlideDown, AnimatedSlideUp } from '@/components/motion/animations';
 
-export function CategoryFilter() {
+export function CategoryFilter({ isMobile }: { isMobile: boolean }) {
     const { selectedCategory, setSelectedCategory } = useToolsStore();
     const categories = useCategories();
 
     return (
-        <div className="flex-1 min-w-0">
-            <Label className="mb-3">Category:</Label>
-            <div className="flex flex-wrap gap-2">
-                {categories.map(category => (
-                    <AnimatedSlideDown key={category}>
-                        <Button
-                            variant={selectedCategory === category ? 'default' : 'outline'}
-                            onClick={() => setSelectedCategory(category)}
-                            className="rounded-full"
-                        >
-                            {category === 'all' ? 'All Categories' : category}
-                        </Button>
-                    </AnimatedSlideDown>
-                ))}
-            </div>
-        </div>
+        <>
+            {isMobile ? (
+                <AnimatedSlideDown className="flex-1 min-w-0">
+                    <Label className="mb-3">Category:</Label>
+                    <div className="flex flex-wrap gap-2">
+                        {categories.map(category => (
+                            <Button
+                                key={category}
+                                variant={selectedCategory === category ? 'default' : 'outline'}
+                                onClick={() => setSelectedCategory(category)}
+                                className="rounded-full"
+                            >
+                                {category === 'all' ? 'All Categories' : category}
+                            </Button>
+                        ))}
+                    </div>
+                </AnimatedSlideDown>
+            ) : (
+                <AnimatedSlideUp className="flex-1 min-w-0">
+                    <Label className="mb-3">Category:</Label>
+                    <div className="flex flex-wrap gap-2">
+                        {categories.map(category => (
+                            <Button
+                                key={category}
+                                variant={selectedCategory === category ? 'default' : 'outline'}
+                                onClick={() => setSelectedCategory(category)}
+                                className="rounded-full"
+                            >
+                                {category === 'all' ? 'All Categories' : category}
+                            </Button>
+                        ))}
+                    </div>
+                </AnimatedSlideUp>
+            )}
+        </>
     );
 }

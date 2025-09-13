@@ -3,7 +3,7 @@ import { useToolsStore, useCategories } from '@/app/(main)/(home)/lib/store/tool
 import { SortSelect } from './sort-select';
 import { CategoryFilter } from './category-filter';
 import { useMobile } from '@/hooks/use-mobile';
-import { AnimatedSlideUp } from '@/components/motion/animations';
+import { AnimatedStaggerContainer } from '@/components/motion/animations';
 
 export function FiltersContainer() {
     const showFilters = useToolsStore(state => state.showFilters);
@@ -16,11 +16,11 @@ export function FiltersContainer() {
     }
 
     return (
-        <AnimatedSlideUp className={`overflow-x-auto ${isMobile ? 'md:hidden' : 'hidden md:block'}`}>
+        <AnimatedStaggerContainer className={isMobile ? 'md:hidden' : 'hidden md:block'}>
             <div className="flex flex-col md:flex-row gap-6 min-w-0">
-                <CategoryFilter />
-                <SortSelect />
+                <CategoryFilter isMobile={isMobile} />
+                <SortSelect isMobile={isMobile} />
             </div>
-        </AnimatedSlideUp>
+        </AnimatedStaggerContainer>
     );
 }
