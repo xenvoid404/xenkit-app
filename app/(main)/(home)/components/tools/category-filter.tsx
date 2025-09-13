@@ -2,30 +2,28 @@
 import { Button } from '@/components/ui/button';
 import { useToolsStore, useCategories } from '@/app/(main)/(home)/lib/store/tools-store';
 import { Label } from '@/components/ui/label';
-import { m } from 'framer-motion';
-import { slideDownVariants } from '@/lib/motion';
+import { AnimatedSlideDown } from '@/components/motion/animations';
 
 export function CategoryFilter() {
     const { selectedCategory, setSelectedCategory } = useToolsStore();
     const categories = useCategories();
 
     return (
-        <m.div className="flex-1 min-w-0">
+        <div className="flex-1 min-w-0">
             <Label className="mb-3">Category:</Label>
             <div className="flex flex-wrap gap-2">
-                {categories.map((category, index) => (
-                    <m.div variant={slideDownVariants}>
+                {categories.map(category => (
+                    <AnimatedSlideDown key={category}>
                         <Button
-                            key={category}
                             variant={selectedCategory === category ? 'default' : 'outline'}
                             onClick={() => setSelectedCategory(category)}
                             className="rounded-full"
                         >
                             {category === 'all' ? 'All Categories' : category}
                         </Button>
-                    </m.div>
+                    </AnimatedSlideDown>
                 ))}
             </div>
-        </m.div>
+        </div>
     );
 }
