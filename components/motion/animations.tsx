@@ -21,14 +21,7 @@ export function AnimatedStaggerDiv({ children, className }: { children: ReactNod
 
 export function AnimatedStaggerSection({ children, className }: { children: ReactNode; className?: string }) {
     return (
-        <m.section
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
-            className={className}
-            {...props}
-        >
+        <m.section variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} className={className}>
             {children}
         </m.section>
     );
