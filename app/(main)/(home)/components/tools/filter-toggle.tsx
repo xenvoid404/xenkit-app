@@ -2,14 +2,13 @@
 import { Button } from '@/components/ui/button';
 import { Filter } from 'lucide-react';
 import { useToolsStore } from '@/app/(main)/(home)/lib/store/tools-store';
-import { m } from 'framer-motion';
-import { slideUpVariants } from '@/lib/motion';
+import { AnimatedSlideUp } from '@/components/motion/animations';
 
 export function FilterToggle() {
     const { toggleFilters } = useToolsStore();
 
     return (
-        <m.div variants={slideUpVariants}>
+        <AnimatedSlideUp>
             <Button
                 variant="outline"
                 onClick={toggleFilters}
@@ -18,6 +17,6 @@ export function FilterToggle() {
                 <Filter className="size-5" />
                 <span className="font-medium">Filters</span>
             </Button>
-        </m.div>
+        </AnimatedSlideUp>
     );
 }
