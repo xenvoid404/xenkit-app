@@ -3,7 +3,8 @@ import { ToolCard } from '@/app/(main)/(home)/components/tools/tool-card';
 import { useFilteredTools, useToolsStore } from '@/app/(main)/(home)/lib/store/tools-store';
 import { Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { AnimatedSlideInUp } from '@/components/motion/animations';
+import { AnimatedSlideInUp, LazyContainer } from '@/components/motion/animations';
+import { AnimatePresence } from 'framer-motion';
 
 export function ToolGrid() {
     const filteredTools = useFilteredTools();

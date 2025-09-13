@@ -6,6 +6,8 @@ import { ResultsSummary } from '@/app/(main)/(home)/components/tools/results-sum
 import { ToolGrid } from '@/app/(main)/(home)/components/tools/tool-grid';
 import { Headline } from '@/app/(main)/(home)/components/tools/headline';
 import { SubHeadline } from '@/app/(main)/(home)/components/tools/sub-headline';
+import { CategoryFilter } from '@/app/(main)/(home)/components/tools/category-filter';
+import { SortSelect } from '@/app/(main)/(home)/components/tools/sort-select';
 
 export function Tools() {
     return (
@@ -20,7 +22,10 @@ export function Tools() {
                         <SearchInput />
                         <FilterToggle />
                     </div>
-                    <FiltersContainer />
+                    <FiltersContainer>
+                        <CategoryFilter />
+                        <SortSelect />
+                    </FiltersContainer>
                 </div>
                 <ResultsSummary />
                 <ToolGrid />
