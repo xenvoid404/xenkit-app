@@ -9,7 +9,7 @@ import { SubHeadline } from '@/app/(main)/(home)/components/tools/sub-headline';
 
 export function Tools() {
     return (
-        <AnimatedStaggerSection id="tools" className="flex items-center justify-center">
+        <AnimatedStaggerSection className="flex items-center justify-center" id="tools">
             <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
                 <div className="flex flex-col gap-4 text-center">
                     <Headline />
