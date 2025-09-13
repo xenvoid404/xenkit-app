@@ -124,22 +124,22 @@ export default function MainLayout({ children }: Readonly<{ children: ReactNode 
         '@type': 'WebSite',
         name: 'Xenkit',
         description: 'Modern toolkit for developers with essential utilities for development, security and productivity.',
-        url: 'https://xenkit.com',
+        url: 'https://xenkit.my.id',
         potentialAction: {
             '@type': 'SearchAction',
             target: {
                 '@type': 'EntryPoint',
-                urlTemplate: 'https://xenkit.com/tools?search={search_term_string}'
+                urlTemplate: 'https://xenkit.my.id/tools?search={search_term_string}'
             },
             'query-input': 'required name=search_term_string'
         },
         publisher: {
             '@type': 'Organization',
             name: 'Xenkit',
-            url: 'https://xenkit.com',
+            url: 'https://xenkit.my.id',
             logo: {
                 '@type': 'ImageObject',
-                url: 'https://xenkit.com/logo.png'
+                url: 'https://xenkit.my.id/logo.png'
             },
             sameAs: ['https://github.com/xenvoid404']
         },
@@ -153,7 +153,7 @@ export default function MainLayout({ children }: Readonly<{ children: ReactNode 
                     '@type': 'SoftwareApplication',
                     name: 'Password Generator',
                     description: 'Generate secure, random passwords with customizable options',
-                    url: 'https://xenkit.com/tools/password-generator',
+                    url: 'https://xenkit.my.id/tools/password-generator',
                     applicationCategory: 'SecurityApplication'
                 }
             ]
