@@ -1,4 +1,4 @@
-import { LazyContainer, AnimatedStaggerSection, AnimatedSlideUp } from '@/components/motion/animations';
+import { AnimatedStaggerSection } from '@/components/motion/animations';
 import { SearchInput } from '@/app/(main)/(home)/components/tools/search-input';
 import { FilterToggle } from '@/app/(main)/(home)/components/tools/filter-toggle';
 import { FiltersContainer } from '@/app/(main)/(home)/components/tools/filters-container';

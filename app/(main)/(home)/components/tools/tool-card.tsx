@@ -9,10 +9,9 @@ import { AnimatedSlideInUp } from '@/components/motion/animations';
 
 interface ToolCardProps {
     tool: Tool;
-    className?: string;
 }
 
-export function ToolCard({ tool, className }: ToolCardProps) {
+export function ToolCard({ tool }: ToolCardProps) {
     const IconComponent = tool.icon;
 
     return (

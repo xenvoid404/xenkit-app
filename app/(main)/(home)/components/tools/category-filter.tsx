@@ -11,7 +11,7 @@ export function CategoryFilter() {
         <div className="flex-1 min-w-0">
             <Label className="mb-3">Category:</Label>
             <div className="flex flex-wrap gap-2">
-                {categories.map((category, index) => (
+                {categories.map(category => (
                     <Button
                         key={category}
                         variant={selectedCategory === category ? 'default' : 'outline'}
