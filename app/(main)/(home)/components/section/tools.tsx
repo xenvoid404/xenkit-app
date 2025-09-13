@@ -10,21 +10,19 @@ export function Tools() {
     return (
         <LazyContainer>
             <AnimatedStaggerSection id="tools" className="flex items-center justify-center">
-                <div className="mx-auto max-w-8xl px-4 py-20 sm:px-6 lg:px-8">
-                    <div className="flex flex-col items-center gap-y-8 text-center">
-                        <Heading />
-                        <div className="space-y-6">
-                            <div className="flex flex-col md:flex-row gap-4">
-                                <SearchInput />
-                                <FilterToggle />
-                            </div>
-                            <FiltersContainer />
+                <div className="max-w-8xl px-4 py-20 sm:px-6 lg:px-8">
+                    <Heading />
+                    <div className="mt-8 space-y-6">
+                        <div className="flex flex-col md:flex-row gap-4">
+                            <SearchInput />
+                            <FilterToggle />
                         </div>
-                        <AnimatedSlideUp>
-                            <ResultsSummary />
-                        </AnimatedSlideUp>
-                        <ToolGrid />
+                        <FiltersContainer />
                     </div>
+                    <AnimatedSlideUp>
+                        <ResultsSummary />
+                    </AnimatedSlideUp>
+                    <ToolGrid />
                 </div>
             </AnimatedStaggerSection>
         </LazyContainer>
