@@ -10,12 +10,16 @@ export function Tools() {
     return (
         <LazyContainer>
             <AnimatedStaggerSection id="tools" className="flex items-center justify-center">
-                <div className="mx-auto max-w-8xl px-4 sm:px-6 lg:px-8">
+                <div className="mx-auto max-w-8xl px-4 py-20 sm:px-6 lg:px-8">
                     <div className="flex flex-col items-center gap-y-8 text-center">
                         <Heading />
-                        <SearchInput />
-                        <FilterToggle />
-                        <FiltersContainer />
+                        <div className="space-y-6">
+                            <div className="flex flex-col md:flex-row gap-4">
+                                <SearchInput />
+                                <FilterToggle />
+                            </div>
+                            <FiltersContainer />
+                        </div>
                         <AnimatedSlideUp>
                             <ResultsSummary />
                         </AnimatedSlideUp>
