@@ -11,7 +11,7 @@ export function LazyContainer({ children }: { children: ReactNode }) {
     );
 }
 
-export function AnimatedStaggerContainer({ children, className, ...props }: { children: ReactNode; className?: string }) {
+export function AnimatedStaggerDiv({ children, className, ...props }: { children: ReactNode; className?: string }) {
     return (
         <m.div
             variants={containerVariants}
