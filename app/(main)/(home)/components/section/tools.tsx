@@ -23,9 +23,7 @@ export function Tools() {
                     <FiltersContainer />
                 </div>
                 <ResultsSummary />
-                <AnimatedSlideUp>
-                    <ToolGrid />
-                </AnimatedSlideUp>
+                <ToolGrid />
             </div>
         </AnimatedStaggerSection>
     );
