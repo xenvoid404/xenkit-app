@@ -1,4 +1,4 @@
-import { type LucideIcon, LockKeyhole, FileJson, KeyRound, ArrowRightLeft, FileSignature, Hash, Fingerprint, KeySquare } from 'lucide-react';
+import { type LucideIcon, KeyRound, ArrowRightLeft, FileSignature, Hash, Fingerprint, KeySquare } from 'lucide-react';
 
 export interface Tool {
     id: number;
@@ -90,6 +90,10 @@ export function getToolsByCategory(category: string): Tool[] {
 
 export function getToolsByCategories(categories: string[]): Tool[] {
     return tools.filter(tool => categories.some(category => tool.categories.includes(category)));
+}
+
+export function getToolsBySlug(slug: string): Tool {
+    return tools.find(tool => tool.slug === slug)!;
 }
 
 export function getRandomToolsByCategory(category: string, count: number = 6): Tool[] {

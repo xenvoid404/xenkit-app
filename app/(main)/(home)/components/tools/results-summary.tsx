@@ -1,7 +1,7 @@
 'use client';
 import { Button } from '@/components/ui/button';
 import { useToolsStore, useFilteredTools } from '@/app/(main)/(home)/lib/store/tools-store';
-import { tools } from '@/app/(main)/(home)/lib/tools-data';
+import { tools } from '@/lib/tools-data';
 import { AnimatedSlideInUp } from '@/components/motion/animations';
 
 export function ResultsSummary() {

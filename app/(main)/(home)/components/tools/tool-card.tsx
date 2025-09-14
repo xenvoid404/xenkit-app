@@ -1,6 +1,6 @@
 'use client';
 import Link from 'next/link';
-import { type Tool } from '@/app/(main)/(home)/lib/tools-data';
+import { type Tool } from '@/lib/tools-data';
 import { ExternalLink } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
