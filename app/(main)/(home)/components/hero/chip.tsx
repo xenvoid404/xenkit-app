@@ -7,7 +7,7 @@ export function Chip() {
         <AnimatedSlideInUp>
             <Badge variant="outline" className="gap-3 py-3 px-4 text-primary text-xs">
                 <Wrench className="size-5" />
-                <span>25+ Developer Tools Available</span>
+                <span>25+ Tools Available</span>
             </Badge>
         </AnimatedSlideInUp>
     );

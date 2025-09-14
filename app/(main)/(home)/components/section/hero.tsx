@@ -1,7 +1,7 @@
 import { AnimatedStaggerSection } from '@/components/motion/animations';
 import { Chip } from '@/app/(main)/(home)/components/hero/chip';
 import { Headline } from '@/app/(main)/(home)/components/hero/headline';
-import { Subheadline } from '@/app/(main)/(home)/components/hero/subheadline';
+import { SubHeadline } from '@/app/(main)/(home)/components/hero/sub-headline';
 import { CtaButton } from '@/app/(main)/(home)/components/hero/cta-button';
 
 export function Hero() {
@@ -11,7 +11,7 @@ export function Hero() {
                 <div className="flex flex-col items-center gap-y-8 text-center">
                     <Chip />
                     <Headline />
-                    <Subheadline />
+                    <SubHeadline />
                     <CtaButton />
                 </div>
             </div>

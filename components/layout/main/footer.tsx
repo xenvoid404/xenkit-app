@@ -12,14 +12,13 @@ export function Footer() {
                 <div className="relative z-10 max-w-7xl mx-auto px-6 py-16">
                     <div className="flex flex-col text-center gap-4">
                         <AnimatedSlideInUp>
-                            <h1 className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
+                            <div className="text-4xl font-bold leading-[1.1] tracking-tight sm:text-5xl lg:text-6xl xl:text-7xl">
                                 <span className="block text-primary">Xenkit</span>
-                            </h1>
+                            </div>
                         </AnimatedSlideInUp>
                         <AnimatedSlideInUp>
-                            <p className="mx-auto max-w-4xl font-light leading-relaxed text-muted-foreground sm:text-xl lg:text-2xl">
-                                Your ultimate developer toolkit with all the essential utilities for development, security and productivity in one
-                                place.
+                            <p className="mx-auto max-w-2xl font-light leading-relaxed text-muted-foreground sm:text-xl lg:text-2xl">
+                                Your go-to collection of free and secure online utilities.
                             </p>
                         </AnimatedSlideInUp>
                     </div>
@@ -28,9 +27,9 @@ export function Footer() {
                         <FooterSocialMenu />
                     </AnimatedSlideInUp>
                     <AnimatedSlideInUp className="flex flex-col text-center gap-2">
-                        <h4 className="font-semibold text-foreground">Support</h4>
+                        <h4 className="font-semibold text-foreground">Enjoying Xenkit?</h4>
                         <p className="text-sm text-muted-foreground leading-relaxed">
-                            If Xenkit has been helpful to you, consider supporting development!
+                            If this collection of tools has been helpful to you, consider supporting its development!
                         </p>
                         <Button className="bg-gradient-to-r from-orange-500 to-yellow-500" asChild>
                             <a href="https://buymeacoffee.com/xenvoid404" target="_blank" rel="noopener noreferrer">

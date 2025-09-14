@@ -1,4 +1,4 @@
-import { type LucideIcon, LockKeyhole, FileJson } from 'lucide-react';
+import { type LucideIcon, LockKeyhole, FileJson, KeyRound, ArrowRightLeft, FileSignature, Hash, Fingerprint, KeySquare } from 'lucide-react';
 
 export interface Tool {
     id: number;
@@ -15,54 +15,54 @@ export const tools: Tool[] = [
         id: 1,
         name: 'Password Generator',
         slug: 'password-generator',
-        description: 'Generate secure passwords with custom options for enhanced security',
+        description: 'Instantly create strong, random passwords. Customize length, and include uppercase, numbers, and symbols.',
         categories: ['Generators', 'Security', 'Utilities'],
-        icon: LockKeyhole,
+        icon: KeyRound,
         route: '/tools/password-generator'
     },
     {
         id: 2,
         name: 'Base64 Encoder & Decoder',
         slug: 'base64-encoder-decoder',
-        description: 'Encode and decode text to/from Base64 format with real-time conversion',
+        description: 'A real-time online tool to encode or decode text and files to and from Base64 format for web-safe strings.',
         categories: ['Converters', 'Encoding', 'Utilities'],
-        icon: FileJson,
+        icon: ArrowRightLeft,
         route: '/tools/base64-encoder-decoder'
     },
     {
         id: 3,
         name: 'JWT Builder & Decoder',
         slug: 'jwt-builder-decoder',
-        description: 'Create, decode, and verify JSON Web Tokens (JWT) with various algorithms',
+        description: 'Decode, verify, and build JSON Web Tokens (JWT). Inspect headers, payloads, and signatures instantly.',
         categories: ['Development', 'Security', 'API'],
-        icon: FileJson,
+        icon: FileSignature,
         route: '/tools/jwt-builder-decoder'
     },
     {
         id: 4,
         name: 'Hash Generator',
         slug: 'hash-generator',
-        description: 'Generate MD5, SHA-1, SHA-256, SHA-512 and other hash values from text',
+        description: 'Quickly generate cryptographic hashes from text. Supports MD5, SHA-1, SHA-256, and SHA-512 algorithms.',
         categories: ['Security', 'Encryption', 'Utilities'],
-        icon: FileJson,
+        icon: Hash,
         route: '/tools/hash-generator'
     },
     {
         id: 5,
         name: 'UUID Generator',
         slug: 'uuid-generator',
-        description: 'Generate various types of UUIDs (v1, v4, v5) and custom identifiers',
+        description: 'Generate universally unique identifiers (UUIDs) online. Create version 1, 4, or 5 UUIDs for your needs.',
         categories: ['Generators', 'Utilities', 'Development'],
-        icon: FileJson,
+        icon: Fingerprint,
         route: '/tools/uuid-generator'
     },
     {
         id: 6,
         name: 'RSA Key Generator',
         slug: 'rsa-key-generator',
-        description: 'Generate RSA public/private key pairs with customizable key sizes',
+        description: 'Create secure RSA public and private key pairs for encryption or SSH. Customize your desired key size.',
         categories: ['Security', 'Encryption', 'Development'],
-        icon: FileJson,
+        icon: KeySquare,
         route: '/tools/rsa-key-generator'
     }
 ];
@@ -113,7 +113,7 @@ export function searchTools(query: string): Tool[] {
     );
 }
 
-export function getRelatedTools(toolId: string, count: number = 4): Tool[] {
+export function getRelatedTools(toolId: number, count: number = 4): Tool[] {
     const currentTool = tools.find(tool => tool.id === toolId);
     if (!currentTool) return [];
 
