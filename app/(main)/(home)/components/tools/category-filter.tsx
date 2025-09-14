@@ -13,40 +13,32 @@ export function CategoryFilter() {
 
     useEffect(() => {
         if (isMobile !== undefined) setIsMounted(true);
-    });
+    }, [isMobile]);
 
     if (!isMounted || isMobile === undefined) return null;
 
     if (isMobile) {
         return (
-            <div className="flex-1 min-w-0">
-                <AnimatedSlideInDown>
-                    <Label className="mb-3">Category:</Label>
-                </AnimatedSlideInDown>
+            <AnimatedSlideInDown className="flex-1 min-w-0">
+                <Label className="mb-3">Category:</Label>
                 <div className="flex flex-wrap gap-2">
                     {categories.map(category => (
-                        <AnimatedSlideInDown key={category}>
-                            <CategoryList category={category} />
-                        </AnimatedSlideInDown>
+                        <CategoryList key={category} category={category} />
                     ))}
                 </div>
-            </div>
+            </AnimatedSlideInDown>
         );
     }
 
     return (
-        <div className="flex-1 min-w-0">
-            <AnimatedSlideInUp>
-                <Label className="mb-3">Category:</Label>
-            </AnimatedSlideInUp>
+        <AnimatedSlideInUp className="flex-1 min-w-0">
+            <Label className="mb-3">Category:</Label>
             <div className="flex flex-wrap gap-2">
                 {categories.map(category => (
-                    <AnimatedSlideInUp key={category}>
-                        <CategoryList category={category} />
-                    </AnimatedSlideInUp>
+                    <CategoryList key={category} category={category} />
                 ))}
             </div>
-        </div>
+        </AnimatedSlideInUp>
     );
 }
 
