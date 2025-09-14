@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import { tools } from '@/lib/tools-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = process.env.APP_URL;
+    const baseUrl = process.env.APP_URL || 'http://localhost:3000';
 
     const staticRoutes = [
         {

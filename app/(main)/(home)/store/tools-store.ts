@@ -1,7 +1,7 @@
 import { create } from 'zustand';
 import { tools, getAllCategories, searchTools, getToolsByCategory } from '@/lib/tools-data';
 
-type SortMode = 'name' | 'category';
+type SortMode = 'nameDesc' | 'nameAsc';
 
 interface ToolsState {
     searchTerm: string;
@@ -18,13 +18,13 @@ interface ToolsState {
 export const useToolsStore = create<ToolsState>(set => ({
     searchTerm: '',
     selectedCategory: 'all',
-    sortMode: 'name',
+    sortMode: 'nameAsc',
     showFilters: false,
     setSearchTerm: term => set({ searchTerm: term }),
     setSelectedCategory: category => set({ selectedCategory: category }),
     setSortMode: mode => set({ sortMode: mode }),
     toggleFilters: () => set(state => ({ showFilters: !state.showFilters })),
-    clearFilters: () => set({ searchTerm: '', selectedCategory: 'all', sortMode: 'name' })
+    clearFilters: () => set({ searchTerm: '', selectedCategory: 'all', sortMode: 'nameAsc' })
 }));
 
 export const useFilteredTools = () => {

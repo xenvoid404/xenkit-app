@@ -29,13 +29,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-    metadataBase: new URL(process.env.APP_URL),
+    metadataBase: new URL(process.env.APP_URL || 'http://localhost:3000'),
     title: {
         default: `${process.env.APP_NAME} - Online Developer Tools for Everyday Tasks`,
         template: `%s | ${process.env.APP_NAME}`
     },
     description:
-        'The modern toolkit for developers, featuring a comprehensive suite of utilities for data conversion, generation, and security—all in one place to streamline your workflow.',
+        'The modern toolkit for developers, featuring a comprehensive suite of utilities for data conversion, generation, and security — all in one place to streamline your workflow.',
     keywords: [
         'online tools',
         'developer tools',

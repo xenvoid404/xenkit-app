@@ -2,6 +2,7 @@
 import { useToolsStore } from '@/app/(main)/(home)/store/tools-store';
 import { type ReactNode } from 'react';
 import { AnimatedStaggerDiv } from '@/components/motion/animations';
+
 export function FiltersContainer({ children }: { children: ReactNode }) {
     const showFilters = useToolsStore(state => state.showFilters);
 

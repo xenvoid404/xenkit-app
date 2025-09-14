@@ -1,4 +1,19 @@
+import { tools } from '@/lib/tools-data';
+
 export function generateJsonLd() {
+    const toolItems = tools.map((tool, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        item: {
+            '@type': 'SoftwareApplication',
+            name: tool.name,
+            description: tool.description,
+            url: `${process.env.APP_URL}${tool.route}`,
+            applicationCategory: 'DeveloperApplication',
+            operatingSystem: 'Any'
+        }
+    }));
+
     const jsonLd = {
         '@context': 'https://schema.org',
         '@graph': [
@@ -8,7 +23,7 @@ export function generateJsonLd() {
                 url: `${process.env.APP_URL}`,
                 name: `${process.env.APP_NAME}`,
                 description:
-                    'The modern toolkit for developers, featuring a comprehensive suite of utilities for data conversion, generation, and security—all in one place to streamline your workflow.',
+                    'The modern toolkit for developers, featuring a comprehensive suite of utilities for data conversion, generation, and security — all in one place to streamline your workflow.',
                 publisher: {
                     '@id': `${process.env.APP_URL}/#organization`
                 }
@@ -23,15 +38,15 @@ export function generateJsonLd() {
                     url: `${process.env.APP_URL}/logo.png`,
                     width: 512,
                     height: 512
-                },
-                sameAs: ['https://github.com/xenvoid404']
+                }
             },
             {
                 '@type': 'WebPage',
                 '@id': `${process.env.APP_URL}/#webpage`,
                 url: `${process.env.APP_URL}`,
-                name: `${process.env.APP_NAME} - Developer Tools for the Web`,
-                description: 'Your ultimate toolkit with all the essential utilities for development, security and productivity in one place.',
+                name: `${process.env.APP_NAME} - Online Developer Tools for Everyday Tasks`,
+                description:
+                    'The modern toolkit for developers, featuring a comprehensive suite of utilities for data conversion, generation, and security — all in one place to streamline your workflow.',
                 isPartOf: {
                     '@id': `${process.env.APP_URL}/#website`
                 },
@@ -46,19 +61,9 @@ export function generateJsonLd() {
                 description: 'A free and open-source collection of powerful online tools for security, data conversion, and productivity.',
                 mainEntity: {
                     '@type': 'ItemList',
-                    name: 'Tool Categories',
-                    itemListElement: [
-                        {
-                            '@type': 'ListItem',
-                            position: 1,
-                            item: {
-                                '@type': 'CreativeWork',
-                                name: 'Explore Our Tool Categories',
-                                description:
-                                    "Discover our most popular utilities organized by category. From generators to converters, we've got everything you need to get the job done."
-                            }
-                        }
-                    ]
+                    name: 'Developer Tools',
+                    description: 'Collection of essential developer tools and utilities',
+                    itemListElement: toolItems
                 }
             }
         ]
