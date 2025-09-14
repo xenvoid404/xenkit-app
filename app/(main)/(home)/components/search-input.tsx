@@ -1,7 +1,7 @@
 'use client';
 import { Search } from 'lucide-react';
 import { Input } from '@/components/ui/input';
-import { useToolsStore } from '@/app/(main)/(home)/lib/store/tools-store';
+import { useToolsStore } from '@/app/(main)/(home)/store/tools-store';
 import { AnimatedSlideInUp } from '@/components/motion/animations';
 
 export function SearchInput() {
@@ -10,7 +10,7 @@ export function SearchInput() {
     return (
         <AnimatedSlideInUp className="relative flex-1 max-w-2xl">
             <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <Search className="size-5 text-muted-foreground" />
+                <Search className="size-5 text-muted-foreground" aria-hidden="true" />
             </div>
             <Input
                 id="search"

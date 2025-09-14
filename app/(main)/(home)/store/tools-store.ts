@@ -1,5 +1,5 @@
 import { create } from 'zustand';
-import { tools, getAllCategories, type Tool } from '@/lib/tools-data';
+import { tools, getAllCategories, searchTools, getToolsByCategory } from '@/lib/tools-data';
 
 type SortMode = 'name' | 'category';
 
@@ -30,33 +30,25 @@ export const useToolsStore = create<ToolsState>(set => ({
 export const useFilteredTools = () => {
     const { searchTerm, selectedCategory, sortMode } = useToolsStore();
 
-    let filtered: Tool[] = [...tools];
-
-    if (searchTerm) {
-        const searchLower = searchTerm.toLowerCase();
-        filtered = filtered.filter(
-            tool =>
-                tool.name.toLowerCase().includes(searchLower) ||
-                tool.description.toLowerCase().includes(searchLower) ||
-                tool.categories.some(category => category.toLowerCase().includes(searchLower))
-        );
-    }
+    let filtered = searchTerm ? searchTools(searchTerm) : [...tools];
 
     if (selectedCategory !== 'all') {
-        filtered = filtered.filter(tool => tool.categories.includes(selectedCategory));
+        filtered = getToolsByCategory(selectedCategory);
     }
 
-    filtered.sort((a, b) => {
+    const sorted = [...filtered].sort((a, b) => {
         switch (sortMode) {
-            case 'category':
-                return a.categories[0].localeCompare(b.categories[0]);
-            case 'name':
+            case 'nameDesc':
+                return b.name.localeCompare(a.name);
+            case 'nameAsc':
             default:
                 return a.name.localeCompare(b.name);
         }
     });
 
-    return filtered;
+    return sorted;
 };
 
-export const useCategories = () => ['all', ...getAllCategories()];
+export const useCategories = () => {
+    return ['all', ...getAllCategories()];
+};

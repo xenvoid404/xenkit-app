@@ -1,6 +1,6 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import { useToolsStore, useFilteredTools } from '@/app/(main)/(home)/lib/store/tools-store';
+import { useToolsStore, useFilteredTools } from '@/app/(main)/(home)/store/tools-store';
 import { tools } from '@/lib/tools-data';
 import { AnimatedSlideInUp } from '@/components/motion/animations';
 
@@ -9,7 +9,7 @@ export function ResultsSummary() {
     const filteredTools = useFilteredTools();
 
     return (
-        <AnimatedSlideInUp className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 my-8">
+        <AnimatedSlideInUp className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 my-8" role="status" aria-live="polite">
             <div className="text-sm text-muted-foreground font-medium">
                 Showing <span className="text-foreground font-semibold">{filteredTools.length}</span> of{' '}
                 <span className="text-foreground font-semibold">{tools.length}</span> tools

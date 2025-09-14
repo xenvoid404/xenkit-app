@@ -29,36 +29,24 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://xenkit.my.id'),
+    metadataBase: new URL(process.env.APP_URL),
     title: {
-        default: 'Xenkit - Developer Tools for the Web',
-        template: '%s | Xenkit'
+        default: `${process.env.APP_NAME} - Online Developer Tools for Everyday Tasks`,
+        template: `%s | ${process.env.APP_NAME}`
     },
     description:
-        'Xenkit is a modern toolkit for developers offering a wide range of utilities such as encoders, decoders, generators, and formatters — all in one place to enhance your productivity.',
-    icons: {
-        icon: [{ url: '/favicon.ico', sizes: 'any' }]
-    },
+        'The modern toolkit for developers, featuring a comprehensive suite of utilities for data conversion, generation, and security—all in one place to streamline your workflow.',
     keywords: [
+        'online tools',
         'developer tools',
-        'online dev tools',
-        'code formatter',
-        'base64 decoder',
-        'uuid generator',
-        'text utilities',
-        'developer productivity',
-        'online tools for developers',
-        'web tools',
-        'Xenkit',
-        'password generator',
-        'json formatter',
-        'url encoder',
-        'regex tester',
-        'color picker',
-        'hash generator',
+        'web utilities',
+        'converters',
+        'generators',
+        'hashing',
+        'security tools',
+        'developer toolkit',
         'free online tools',
-        'developer utilities',
-        'coding tools'
+        'json tools'
     ],
     authors: [{ name: 'Xenvoid', url: 'https://github.com/xenvoid404' }],
     creator: 'Xenvoid',
@@ -83,71 +71,38 @@ export const metadata: Metadata = {
     },
     manifest: '/site.webmanifest',
     alternates: {
-        canonical: 'https://xenkit.my.id'
+        canonical: '/'
     },
     openGraph: {
         type: 'website',
         locale: 'en_US',
-        url: 'https://xenkit.my.id',
-        siteName: 'Xenkit',
-        title: 'Xenkit - Developer Tools for the Web',
-        description: 'Your ultimate toolkit with all the essential utilities for development, security and productivity in one place.',
+        url: process.env.APP_URL,
+        siteName: process.env.APP_NAME,
         images: [
             {
-                url: '/og-image.png',
+                url: `${process.env.APP_URL}/og-image.png`,
                 width: 1200,
                 height: 630,
-                alt: 'Xenkit - Developer Tools for the Web'
+                alt: `${process.env.APP_NAME} - Online Developer Tools for Everyday Tasks`
             }
         ]
     },
     twitter: {
         card: 'summary_large_image',
-        title: 'Xenkit - Developer Tools for the Web',
-        description: 'Your ultimate toolkit with all the essential utilities for development, security and productivity in one place.',
-        images: ['/og-image.png'],
+        images: [`${process.env.APP_URL}/og-image.png`],
         creator: '@xenvoid404'
     },
     category: 'Technology',
-    classification: 'Developer Tools'
+    classification: 'Developer Tools',
+    icons: {
+        icon: '/favicon.ico'
+    }
 };
 
 export default function MainLayout({ children }: Readonly<{ children: ReactNode }>) {
-    const jsonLd = {
-        '@context': 'https://schema.org',
-        '@type': 'WebSite',
-        name: 'Xenkit',
-        description: 'Modern toolkit for developers with essential utilities for development, security and productivity.',
-        url: 'https://xenkit.my.id',
-        potentialAction: {
-            '@type': 'SearchAction',
-            target: {
-                '@type': 'EntryPoint',
-                urlTemplate: 'https://xenkit.my.id/tools?search={search_term_string}'
-            },
-            'query-input': 'required name=search_term_string'
-        },
-        publisher: {
-            '@type': 'Organization',
-            name: 'Xenkit',
-            url: 'https://xenkit.my.id',
-            logo: {
-                '@type': 'ImageObject',
-                url: 'https://xenkit.my.id/logo.png'
-            },
-            sameAs: ['https://github.com/xenvoid404']
-        }
-    };
-
     return (
         <html lang="en" className="scroll-smooth">
             <body className={`${figtree.variable} antialiased`}>
-                <Script
-                    id="json-ld"
-                    type="application/ld+json"
-                    strategy="afterInteractive"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-                />
                 <Script src="https://www.googletagmanager.com/gtag/js?id=G-KQGY9YHHQW" strategy="afterInteractive" />
                 <Script id="google-analytics" strategy="afterInteractive">
                     {`

@@ -1,11 +1,10 @@
 'use client';
-import { ToolCard } from '@/app/(main)/(home)/components/tools/tool-card';
-import { useFilteredTools, useToolsStore } from '@/app/(main)/(home)/lib/store/tools-store';
+import { ToolCard } from '@/app/(main)/(home)/components/tool-card';
+import { useFilteredTools, useToolsStore } from '@/app/(main)/(home)/store/tools-store';
 import { Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AnimatedStaggerDiv, AnimatedSlideInUp } from '@/components/motion/animations';
-import { m, AnimatePresence } from 'framer-motion';
-import { slideUpVariants } from '@/components/motion/variants';
+import { AnimatePresence } from 'framer-motion';
 
 export function ToolGrid() {
     const filteredTools = useFilteredTools();
@@ -14,17 +13,22 @@ export function ToolGrid() {
     return (
         <AnimatePresence>
             {filteredTools.length > 0 ? (
-                <AnimatedStaggerDiv key={selectedCategory} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <AnimatedStaggerDiv
+                    key={selectedCategory}
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+                    role="grid"
+                    aria-label="Tool grid"
+                >
                     {filteredTools.map(tool => (
-                        <m.div variants={slideUpVariants} key={tool.id}>
+                        <AnimatedSlideInUp key={tool.id}>
                             <ToolCard tool={tool} />
-                        </m.div>
+                        </AnimatedSlideInUp>
                     ))}
                 </AnimatedStaggerDiv>
             ) : (
-                <AnimatedSlideInUp key={`no-results-${selectedCategory}`} className="text-center py-20">
+                <AnimatedSlideInUp key={`no-results-${selectedCategory}`} className="text-center py-20" role="status" aria-live="polite">
                     <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-muted/20 flex items-center justify-center">
-                        <Search className="size-8 text-muted-foreground" />
+                        <Search className="size-8 text-muted-foreground" aria-hidden="true" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">No tools found</h3>
                     <p className="text-muted-foreground mb-6 max-w-md mx-auto">

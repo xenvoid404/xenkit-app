@@ -1,5 +1,5 @@
 'use client';
-import { useToolsStore } from '@/app/(main)/(home)/lib/store/tools-store';
+import { useToolsStore } from '@/app/(main)/(home)/store/tools-store';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
 type SortMode = 'name' | 'category';
@@ -39,12 +39,12 @@ function FilterSelection() {
 
     return (
         <Select value={sortMode} onValueChange={value => setSortMode(value as SortMode)}>
-            <SelectTrigger className="w-full py-6">
-                <SelectValue placeholder="Filter Option" />
+            <SelectTrigger className="w-full py-6" aria-label="Sort tools">
+                <SelectValue placeholder="Sort by" />
             </SelectTrigger>
             <SelectContent>
-                <SelectItem value="name">Name A-Z</SelectItem>
-                <SelectItem value="category">Category</SelectItem>
+                <SelectItem value="nameAsc">Name A-Z</SelectItem>
+                <SelectItem value="nameDesc">Name Z-A</SelectItem>
             </SelectContent>
         </Select>
     );

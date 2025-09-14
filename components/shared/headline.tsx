@@ -13,9 +13,9 @@ export function Headline({ children, as: Tag = 'h1', className }: HeadlineProps)
             className={cn(
                 'font-bold leading-[1.1] tracking-tight',
                 {
-                    'text-4xl sm:text-5xl lg:text-6xl xl:text-7xl': Tag === 'h1',
-                    'text-3xl sm:text-4xl lg:text-5xl': Tag === 'h2',
-                    'text-2xl sm:text-3xl': Tag === 'h3'
+                    'text-3xl sm:text-4xl lg:text-5xl xl:text-6xl': Tag === 'h1',
+                    'text-2xl sm:text-3xl lg:text-4xl': Tag === 'h2',
+                    'text-xl sm:text-2xl': Tag === 'h3'
                 },
                 className
             )}

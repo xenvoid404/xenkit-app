@@ -48,8 +48,9 @@ jobs:
                       set -e
                       cd ${{ secrets.VPS_PROJECT_PATH }}
                       cat <<'EOF' >> .env
-                      APP_ENV="production"
-                      APP_DATABASE_URL="mysql://yun:(nD18EYG)dPsJ-VN@localhost:3306/wangshu"
+                      APP_NAME="Xenkit"
+                      APP_ENV="development"
+                      APP_URL="https://xenkit.my.id"
                       EOF
                       docker compose pull
                       docker compose up -d --remove-orphans

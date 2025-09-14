@@ -14,7 +14,7 @@ export function ToolCard({ tool }: ToolCardProps) {
     const IconComponent = tool.icon;
 
     return (
-        <Card>
+        <Card className="flex flex-col h-full">
             <CardHeader className="relative">
                 <div className="flex size-14 items-center justify-center rounded-xl border border-primary/15 bg-primary/10">
                     <IconComponent className="size-7 text-primary" />
@@ -38,7 +38,7 @@ export function ToolCard({ tool }: ToolCardProps) {
                     )}
                 </div>
             </CardContent>
-            <CardFooter className="relative z-10 pt-4">
+            <CardFooter className="relative z-10 pt-4 mt-auto">
                 <Button asChild className="w-full">
                     <Link href={tool.route} aria-label={`Open ${tool.name}`}>
                         Open Tool

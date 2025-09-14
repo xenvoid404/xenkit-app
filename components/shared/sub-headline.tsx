@@ -7,5 +7,5 @@ interface SubHeadlineProps {
 }
 
 export function SubHeadline({ children, className }: SubHeadlineProps) {
-    return <p className={cn('mx-auto max-w-4xl font-light leading-relaxed text-muted-foreground sm:text-xl lg:text-2xl', className)}>{children}</p>;
+    return <p className={cn('mx-auto max-w-4xl leading-relaxed text-muted-foreground sm:text-xl lg:text-2xl', className)}>{children}</p>;
 }

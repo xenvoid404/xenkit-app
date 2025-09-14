@@ -1,6 +1,6 @@
 'use client';
 import { Button } from '@/components/ui/button';
-import { useToolsStore, useCategories } from '@/app/(main)/(home)/lib/store/tools-store';
+import { useToolsStore, useCategories } from '@/app/(main)/(home)/store/tools-store';
 import { Label } from '@/components/ui/label';
 import { useMobile } from '@/hooks/use-mobile';
 import { useState, useEffect } from 'react';
@@ -50,6 +50,7 @@ function CategoryList({ category }: { category: string }) {
             variant={selectedCategory === category ? 'default' : 'outline'}
             onClick={() => setSelectedCategory(category)}
             className="rounded-full"
+            aria-pressed={selectedCategory === category}
         >
             {category === 'all' ? 'All Categories' : category}
         </Button>

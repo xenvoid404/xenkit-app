@@ -11,10 +11,21 @@ export function useMobile() {
             setIsMobile(mql.matches);
         };
 
-        mql.addEventListener('change', onChange);
+        if (mql.addEventListener) {
+            mql.addEventListener('change', onChange);
+        } else {
+            mql.addListener(onChange);
+        }
+
         onChange();
 
-        return () => mql.removeEventListener('change', onChange);
+        return () => {
+            if (mql.removeEventListener) {
+                mql.removeEventListener('change', onChange);
+            } else {
+                mql.removeListener(onChange);
+            }
+        };
     }, []);
 
     return isMobile;
