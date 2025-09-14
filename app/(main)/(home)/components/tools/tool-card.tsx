@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 import { type Tool } from '@/app/(main)/(home)/lib/tools-data';
-import { LuExternalLink } from 'react-icons/lu';
+import { ExternalLink } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -42,7 +42,7 @@ export function ToolCard({ tool }: ToolCardProps) {
                 <Button asChild className="w-full">
                     <Link href={tool.route} aria-label={`Open ${tool.name}`}>
                         Open Tool
-                        <LuExternalLink className="ml-2 h-4 w-4" />
+                        <ExternalLink className="ml-2 size-4" />
                     </Link>
                 </Button>
             </CardFooter>

@@ -7,7 +7,7 @@ export function LazyContainer({ children }: { children: ReactNode }) {
     return <LazyMotion features={domAnimation}>{children}</LazyMotion>;
 }
 
-export function AnimatedStaggerDiv({ children, className }: { children: ReactNode; className?: string }) {
+export function AnimatedStaggerDiv({ children, className, id }: { children: ReactNode; className?: string; id?: string }) {
     return (
         <m.div
             variants={containerVariants}
@@ -16,13 +16,14 @@ export function AnimatedStaggerDiv({ children, className }: { children: ReactNod
             exit="hidden"
             viewport={{ once: true, amount: 0.2 }}
             className={className}
+            id={id}
         >
             {children}
         </m.div>
     );
 }
 
-export function AnimatedStaggerSection({ children, className }: { children: ReactNode; className?: string }) {
+export function AnimatedStaggerSection({ children, className, id }: { children: ReactNode; className?: string; id?: string }) {
     return (
         <m.section
             variants={containerVariants}
@@ -31,6 +32,7 @@ export function AnimatedStaggerSection({ children, className }: { children: Reac
             exit="hidden"
             viewport={{ once: true, amount: 0.2 }}
             className={className}
+            id={id}
         >
             {children}
         </m.section>
