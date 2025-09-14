@@ -2,13 +2,14 @@
 import { useToolsStore } from '@/app/(main)/(home)/store/tools-store';
 import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
-import { AnimatedSlideInUp, AnimatedSlideInDown } from '@/components/motion/animations';
+import { AnimatedSlideInUp, AnimatedSlideInDown, AnimatedStaggerDiv } from '@/components/motion/animations';
 import { useMobile } from '@/hooks/use-mobile';
 import { useState, useEffect } from 'react';
 
 type SortMode = 'nameDesc' | 'nameAsc';
 
 export function SortSelect() {
+    const showFilters = useToolsStore(state => state.showFilters);
     const [isMounted, setIsMounted] = useState<boolean>(false);
     const isMobile = useMobile();
 
@@ -20,18 +21,22 @@ export function SortSelect() {
 
     if (isMobile) {
         return (
-            <AnimatedSlideInDown className="md:w-52 flex-shrink-0">
-                <Label className="mb-3">Sort by:</Label>
-                <FilterSelection />
-            </AnimatedSlideInDown>
+            <AnimatedStaggerDiv key={+showFilters} className="md:w-52 flex-shrink-0">
+                <AnimatedSlideInDown>
+                    <Label className="mb-3">Sort by:</Label>
+                    <FilterSelection />
+                </AnimatedSlideInDown>
+            </AnimatedStaggerDiv>
         );
     }
 
     return (
-        <AnimatedSlideInUp className="md:w-52 flex-shrink-0">
-            <Label className="mb-3">Sort by:</Label>
-            <FilterSelection />
-        </AnimatedSlideInUp>
+        <AnimatedStaggerDiv className="md:w-52 flex-shrink-0">
+            <AnimatedSlideInUp>
+                <Label className="mb-3">Sort by:</Label>
+                <FilterSelection />
+            </AnimatedSlideInUp>
+        </AnimatedStaggerDiv>
     );
 }
 

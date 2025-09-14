@@ -4,9 +4,10 @@ import { useToolsStore, useCategories } from '@/app/(main)/(home)/store/tools-st
 import { Label } from '@/components/ui/label';
 import { useMobile } from '@/hooks/use-mobile';
 import { useState, useEffect } from 'react';
-import { AnimatedSlideInUp, AnimatedSlideInDown } from '@/components/motion/animations';
+import { AnimatedSlideInUp, AnimatedSlideInDown, AnimatedStaggerDiv } from '@/components/motion/animations';
 
 export function CategoryFilter() {
+    const showFilters = useToolsStore(state => state.showFilters);
     const categories = useCategories();
     const [isMounted, setIsMounted] = useState<boolean>(false);
     const isMobile = useMobile();
@@ -19,26 +20,30 @@ export function CategoryFilter() {
 
     if (isMobile) {
         return (
-            <AnimatedSlideInDown className="flex-1 min-w-0">
+            <AnimatedStaggerDiv key={+showFilters} className="flex-1 min-w-0">
+                <AnimatedSlideInDown>
+                    <Label className="mb-3">Category:</Label>
+                    <div className="flex flex-wrap gap-2">
+                        {categories.map(category => (
+                            <CategoryList key={category} category={category} />
+                        ))}
+                    </div>
+                </AnimatedSlideInDown>
+            </AnimatedStaggerDiv>
+        );
+    }
+
+    return (
+        <AnimatedStaggerDiv className="flex-1 min-w-0">
+            <AnimatedSlideInUp>
                 <Label className="mb-3">Category:</Label>
                 <div className="flex flex-wrap gap-2">
                     {categories.map(category => (
                         <CategoryList key={category} category={category} />
                     ))}
                 </div>
-            </AnimatedSlideInDown>
-        );
-    }
-
-    return (
-        <AnimatedSlideInUp className="flex-1 min-w-0">
-            <Label className="mb-3">Category:</Label>
-            <div className="flex flex-wrap gap-2">
-                {categories.map(category => (
-                    <CategoryList key={category} category={category} />
-                ))}
-            </div>
-        </AnimatedSlideInUp>
+            </AnimatedSlideInUp>
+        </AnimatedStaggerDiv>
     );
 }
 
