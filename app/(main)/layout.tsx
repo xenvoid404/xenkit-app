@@ -109,13 +109,7 @@ export const metadata: Metadata = {
         creator: '@xenvoid404'
     },
     category: 'Technology',
-    classification: 'Developer Tools',
-    other: {
-        'apple-mobile-web-app-capable': 'yes',
-        'apple-mobile-web-app-status-bar-style': 'default',
-        'apple-mobile-web-app-title': 'Xenkit',
-        'google-site-verification': 'your-google-verification-code-here'
-    }
+    classification: 'Developer Tools'
 };
 
 export default function MainLayout({ children }: Readonly<{ children: ReactNode }>) {
@@ -142,28 +136,18 @@ export default function MainLayout({ children }: Readonly<{ children: ReactNode 
                 url: 'https://xenkit.my.id/logo.png'
             },
             sameAs: ['https://github.com/xenvoid404']
-        },
-        mainEntity: {
-            '@type': 'ItemList',
-            name: 'Developer Tools',
-            description: 'Collection of essential developer tools and utilities',
-            numberOfItems: 25,
-            itemListElement: [
-                {
-                    '@type': 'SoftwareApplication',
-                    name: 'Password Generator',
-                    description: 'Generate secure, random passwords with customizable options',
-                    url: 'https://xenkit.my.id/tools/password-generator',
-                    applicationCategory: 'SecurityApplication'
-                }
-            ]
         }
     };
 
     return (
         <html lang="en" className="scroll-smooth">
             <body className={`${figtree.variable} antialiased`}>
-                <Script id="json-ld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+                <Script
+                    id="json-ld"
+                    type="application/ld+json"
+                    strategy="afterInteractive"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
                 <Script src="https://www.googletagmanager.com/gtag/js?id=G-KQGY9YHHQW" strategy="afterInteractive" />
                 <Script id="google-analytics" strategy="afterInteractive">
                     {`
@@ -175,13 +159,11 @@ export default function MainLayout({ children }: Readonly<{ children: ReactNode 
                 </Script>
                 <LazyContainer>
                     <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-                        <div className="flex min-h-svh">
+                        <div className="flex min-h-svh flex-col md:flex-row">
                             <Sidebar />
                             <div className="flex flex-1 flex-col">
                                 <Header />
-                                <main className="flex-1">
-                                    <div className="flex flex-col gap-4">{children}</div>
-                                </main>
+                                <main className="flex-1">{children}</main>
                                 <Footer />
                             </div>
                         </div>

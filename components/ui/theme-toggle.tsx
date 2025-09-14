@@ -6,24 +6,29 @@ import { useEffect, useState } from 'react';
 
 export function ThemeToggle() {
     const { resolvedTheme, setTheme } = useTheme();
-    const [mounted, setMounted] = useState<boolean>(false);
+    const [mounted, setMounted] = useState(false);
 
-    useEffect(() => setMounted(true), []);
+    useEffect(() => {
+        setMounted(true);
+    }, []);
 
-    if (!mounted) return null;
+    if (!mounted) {
+        return (
+            <Button variant="ghost" size="icon" aria-label="Toggle theme" disabled className="opacity-50">
+                <Sun className="size-5" />
+            </Button>
+        );
+    }
 
     const isDarkMode = resolvedTheme === 'dark';
-
-    const toggleTheme = () => {
-        setTheme(isDarkMode ? 'light' : 'dark');
-    };
+    const toggleTheme = () => setTheme(isDarkMode ? 'light' : 'dark');
 
     return (
-        <Button type="button" variant="ghost" onClick={toggleTheme} aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} theme`}>
+        <Button variant="ghost" size="icon" onClick={toggleTheme} aria-label={`Switch to ${isDarkMode ? 'light' : 'dark'} theme`}>
             {isDarkMode ? (
-                <Sun className="size-5 text-primary hover:rotate-90 transition-all duration-300 ease-in-out" />
+                <Sun className="size-5 text-primary transition-transform duration-500 ease-in-out hover:rotate-90" />
             ) : (
-                <Moon className="size-5 text-secondary hover:-rotate-12 transition-all duration-300 ease-in-out" />
+                <Moon className="size-5 text-secondary transition-transform duration-500 ease-in-out hover:-rotate-12" />
             )}
         </Button>
     );

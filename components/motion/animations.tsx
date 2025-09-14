@@ -1,55 +1,55 @@
 'use client';
-import { m, LazyMotion, domAnimation } from 'framer-motion';
+import { m, LazyMotion, domAnimation, type HTMLMotionProps } from 'framer-motion';
 import { slideUpVariants, slideDownVariants, containerVariants } from '@/components/motion/variants';
-import { type ReactNode } from 'react';
+import { type PropsWithChildren, type ReactNode } from 'react';
 
 export function LazyContainer({ children }: { children: ReactNode }) {
     return <LazyMotion features={domAnimation}>{children}</LazyMotion>;
 }
 
-export function AnimatedStaggerDiv({ children, className, id }: { children: ReactNode; className?: string; id?: string }) {
+export function AnimatedStaggerDiv({ children, className, ...props }: PropsWithChildren<HTMLMotionProps<'div'> & { className?: string }>) {
     return (
         <m.div
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             exit="hidden"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1 }}
             className={className}
-            id={id}
+            {...props}
         >
             {children}
         </m.div>
     );
 }
 
-export function AnimatedStaggerSection({ children, className, id }: { children: ReactNode; className?: string; id?: string }) {
+export function AnimatedStaggerSection({ children, className, ...props }: PropsWithChildren<HTMLMotionProps<'section'> & { className?: string }>) {
     return (
         <m.section
             variants={containerVariants}
             initial="hidden"
             whileInView="visible"
             exit="hidden"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: true, amount: 0.1 }}
             className={className}
-            id={id}
+            {...props}
         >
             {children}
         </m.section>
     );
 }
 
-export function AnimatedSlideInUp({ children, className }: { children: ReactNode; className?: string }) {
+export function AnimatedSlideInUp({ children, className, ...props }: PropsWithChildren<HTMLMotionProps<'div'> & { className?: string }>) {
     return (
-        <m.div variants={slideUpVariants} className={className}>
+        <m.div variants={slideUpVariants} className={className} {...props}>
             {children}
         </m.div>
     );
 }
 
-export function AnimatedSlideInDown({ children, className }: { children: ReactNode; className?: string }) {
+export function AnimatedSlideInDown({ children, className, ...props }: PropsWithChildren<HTMLMotionProps<'div'> & { className?: string }>) {
     return (
-        <m.div variants={slideDownVariants} className={className}>
+        <m.div variants={slideDownVariants} className={className} {...props}>
             {children}
         </m.div>
     );

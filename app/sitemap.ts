@@ -4,7 +4,7 @@ import { tools } from '@/lib/tools-data';
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = 'https://xenkit.my.id';
 
-    const routes = [
+    const staticRoutes = [
         {
             url: baseUrl,
             lastModified: new Date(),
@@ -12,10 +12,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
             priority: 1.0
         },
         {
-            url: `${baseUrl}/tools`,
+            url: `${baseUrl}/about`,
             lastModified: new Date(),
-            changeFrequency: 'daily' as const,
-            priority: 0.9
+            changeFrequency: 'monthly' as const,
+            priority: 0.8
+        },
+        {
+            url: `${baseUrl}/blog`,
+            lastModified: new Date(),
+            changeFrequency: 'weekly' as const,
+            priority: 0.7
         }
     ];
 
@@ -23,8 +29,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
         url: `${baseUrl}${tool.route}`,
         lastModified: new Date(),
         changeFrequency: 'weekly' as const,
-        priority: 0.8
+        priority: 0.9
     }));
 
-    return [...routes, ...toolRoutes];
+    return [...staticRoutes, ...toolRoutes];
 }

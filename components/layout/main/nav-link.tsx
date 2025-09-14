@@ -28,14 +28,14 @@ export function NavLink({ item, onClick }: { item: Navigation; onClick?: () => v
     return (
         <Button variant={isActive ? 'secondary' : 'ghost'} asChild>
             {item.isExternal ? (
-                <a href={item.href} target="_blank" rel="noopener noreferrer" onClick={onClick}>
-                    {item.icon && <item.icon />}
-                    {item.title}
+                <a href={item.href} target="_blank" rel="noopener noreferrer" onClick={onClick} className="flex items-center gap-2">
+                    {item.icon && <item.icon className="size-4" />}
+                    <span>{item.title}</span>
                 </a>
             ) : (
-                <Link href={item.href} onClick={onClick}>
-                    {item.icon && <item.icon />}
-                    {item.title}
+                <Link href={item.href} onClick={onClick} className="flex items-center gap-2">
+                    {item.icon && <item.icon className="size-4" />}
+                    <span>{item.title}</span>
                 </Link>
             )}
         </Button>
@@ -44,7 +44,7 @@ export function NavLink({ item, onClick }: { item: Navigation; onClick?: () => v
 
 export function HeaderMenu() {
     return (
-        <nav className="hidden md:flex h-full items-center space-x-1">
+        <nav className="hidden md:flex h-full items-center gap-1" aria-label="Main navigation">
             {navigations.map(item => (
                 <NavLink key={item.title} item={item} />
             ))}
@@ -69,11 +69,12 @@ export function SidebarMenu() {
         <LazyMotion features={domAnimation}>
             <m.nav
                 key="menu-container"
-                className="flex flex-col items-center gap-8 w-full"
+                className="flex flex-col items-center gap-6 w-full"
                 variants={menuContainerAnimate}
                 initial="close"
                 animate="open"
                 exit="close"
+                aria-label="Main navigation"
             >
                 {navigations.map(item => (
                     <m.div key={item.title} className="w-full text-center" variants={menuItemAnimate}>
@@ -87,14 +88,14 @@ export function SidebarMenu() {
 
 export function FooterNavigationMenu() {
     return (
-        <div className="lg:col-span-1">
+        <div>
             <h4 className="font-semibold mb-4 text-foreground">Navigation</h4>
             <ul className="space-y-3">
                 {navigations.map(item => (
                     <li key={item.title}>
                         <Link
                             href={item.href}
-                            className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-105 inline-block"
+                            className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 inline-block"
                         >
                             {item.title}
                         </Link>
@@ -107,16 +108,19 @@ export function FooterNavigationMenu() {
 
 export function FooterSocialMenu() {
     return (
-        <div className="lg:col-span-1">
-            <h4 className="font-semibold mb-4 text-foreground">Navigation</h4>
+        <div>
+            <h4 className="font-semibold mb-4 text-foreground">Connect</h4>
             <ul className="space-y-3">
                 {socials.map(item => (
                     <li key={item.title}>
                         <Link
                             href={item.href}
-                            className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-105 inline-block"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-muted-foreground hover:text-primary transition-colors duration-300 inline-flex items-center gap-2"
                         >
-                            {item.title}
+                            {item.icon && <item.icon className="size-4" />}
+                            <span>{item.title}</span>
                         </Link>
                     </li>
                 ))}

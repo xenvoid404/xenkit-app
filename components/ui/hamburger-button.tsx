@@ -7,7 +7,7 @@ export function HamburgerButton() {
     const { toggle } = useSidebarStore();
 
     return (
-        <Button type="button" variant="ghost" className="md:hidden" onClick={toggle}>
+        <Button type="button" variant="ghost" size="icon" className="md:hidden" onClick={toggle} aria-label="Toggle navigation menu">
             <Menu className="size-5" />
         </Button>
     );

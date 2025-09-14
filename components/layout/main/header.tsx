@@ -5,15 +5,15 @@ import { HamburgerButton } from '@/components/ui/hamburger-button';
 
 export function Header() {
     return (
-        <header className="sticky top-0 z-40 flex h-14 items-center border-b border-muted bg-background backdrop-blur-md">
-            <div className="flex w-full items-center justify-between px-6">
+        <header className="sticky top-0 z-40 flex h-14 items-center border-b border-muted bg-background/80 backdrop-blur-md">
+            <div className="flex w-full items-center justify-between px-4 sm:px-6">
                 <div className="flex h-full items-center">
                     <Link href="/" aria-label="Xenkit - Go to homepage">
-                        <span className="text-2xl md:text-3xl font-bold text-primary">Xenkit</span>
+                        <span className="text-xl font-bold text-primary sm:text-2xl">Xenkit</span>
                     </Link>
                 </div>
                 <HeaderMenu />
-                <div className="flex items-center space-x-1">
+                <div className="flex items-center gap-1">
                     <ThemeToggle />
                     <HamburgerButton />
                 </div>
