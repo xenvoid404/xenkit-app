@@ -55,7 +55,6 @@ function CategoryList({ category }: { category: string }) {
 
     return (
         <Button
-            key={category}
             variant={selectedCategory === category ? 'default' : 'outline'}
             onClick={() => setSelectedCategory(category)}
             className="rounded-full"

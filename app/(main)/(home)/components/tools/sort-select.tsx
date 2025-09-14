@@ -18,10 +18,12 @@ export function SortSelect() {
     if (!isMounted || isMobile === undefined) return null;
 
     if (isMobile) {
-        <AnimatedSlideInDown className="md:w-52 flex-shrink-0">
-            <Label className="mb-3">Sort by:</Label>
-            <FilterSelection />
-        </AnimatedSlideInDown>;
+        return (
+            <AnimatedSlideInDown className="md:w-52 flex-shrink-0">
+                <Label className="mb-3">Sort by:</Label>
+                <FilterSelection />
+            </AnimatedSlideInDown>
+        );
     }
 
     return (
@@ -37,7 +39,7 @@ function FilterSelection() {
 
     return (
         <Select value={sortMode} onValueChange={value => setSortMode(value as SortMode)}>
-            <SelectTrigger>
+            <SelectTrigger className="w-full py-6">
                 <SelectValue placeholder="Filter Option" />
             </SelectTrigger>
             <SelectContent>
